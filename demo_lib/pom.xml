@@ -2,7 +2,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -14,23 +14,18 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Java derleyici sürümünü 1.8+ olarak ayarlıyoruz -->
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <!-- Alternatif olarak (Java 9+ özellikleriyle uyumlu) 
-         aşağıdaki satırı da kullanabilirsiniz:
-    <maven.compiler.release>8</maven.compiler.release>
-    -->
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <lombok.version>1.18.32</lombok.version>
   </properties>
 
   <dependencies>
     <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.26</version>
-    <scope>provided</scope>
-  </dependency>
-
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
@@ -41,31 +36,24 @@
   </dependencies>
 
   <build>
-    <!-- Halihazırda pluginManagement içinde versiyonları kilitlenmiş eklentileri,
-         aşağıda etkin olarak kullanıma alıyoruz -->
     <plugins>
-      <!-- Derleyici eklentisi -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>3.11.0</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <!-- Eğer kullanırsanız:
-          <release>${maven.compiler.release}</release>
-          -->
-           <annotationProcessorPaths>
+          <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
               <version>${lombok.version}</version>
             </path>
-        </annotationProcessorPaths>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
 
-      <!-- İsteğe bağlı: `mvn exec:java` ile main metodunu çalıştırmak için -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -77,7 +65,6 @@
     </plugins>
 
     <pluginManagement>
-      <!-- Versiyon kilitleri -->
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -89,7 +76,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <version>3.11.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
