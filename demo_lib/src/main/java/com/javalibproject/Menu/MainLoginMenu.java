@@ -6,7 +6,7 @@ import java.util.List;
 public class MainLoginMenu extends Menu {
 
       public MainLoginMenu() {
-        super("Login Menu");
+        super("------LIBRARY LOGIN MENU------");
         setMenu_options(Arrays.asList(
             new MenuOptions("U", "User Login",          
             this::handleUserLogin),

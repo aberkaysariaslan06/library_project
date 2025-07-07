@@ -8,7 +8,7 @@ import lombok.Setter;
 
 
 public class Menu {
-    private final String title; //Login Menu
+    private final String title; //Library Login Menu
     @Setter
     private List<MenuOptions> menu_options; // U-User Login, A-Admin Login, X-Exit
 
@@ -32,7 +32,6 @@ public class Menu {
         
       
     }
-    
     public MenuOptions getOption() { 
         int attempts = 0;
         while (true) {
