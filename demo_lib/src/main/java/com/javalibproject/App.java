@@ -18,6 +18,7 @@ public class App
     {
       
       UserRepository userRepository = new UserRepository();
+      createDummyUsers(userRepository);
       UserService userService = new UserServiceImp(userRepository);
       UserLoginMenu userLoginMenu = new UserLoginMenu(userService);
       Menu mainMenu = new MainLoginMenu(userLoginMenu);
@@ -26,8 +27,8 @@ public class App
         
     }
 
-    private static void createDummyUsers() {
-      UserRepository userRepository = new UserRepository();
+    private static void createDummyUsers(UserRepository userRepository) {
+
       userRepository.createUser(new Customer(1, "customer1", "password1", "customerUser", "customerUser", "address", "postCode", "city", "email"));
       //Integer userId, String username, String password, String firstName, String lastName, String address, String postCode, String city, String email
           

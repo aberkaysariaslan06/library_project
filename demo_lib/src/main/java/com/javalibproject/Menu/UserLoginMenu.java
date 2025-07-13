@@ -27,14 +27,15 @@ public class UserLoginMenu extends Menu{
         Optional<SystemUser> user = getUserService().getByUsernameAndPassword(username, password);
         if (user.isPresent()) {
             println("User login successful: " + user.get().getUsername());
+            return null;
         } else{
             println("User login failed: Invalid username or password. Please try again.");
-            execute();
+            return execute();
         }
-        return null;
       
     
 
     
+
 }
 }
