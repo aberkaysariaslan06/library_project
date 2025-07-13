@@ -1,9 +1,9 @@
-package com.javalibproject.Menu;
+package com.javalibproject.Menu.Login;
 
 import java.util.Arrays;
-import java.util.List;
 
-import com.javalibproject.Service.UserService;
+import com.javalibproject.Menu.Generic.Menu;
+import com.javalibproject.Menu.Generic.MenuOptions;
 
 public class MainLoginMenu extends Menu {
 
@@ -13,7 +13,7 @@ public class MainLoginMenu extends Menu {
         super("------LIBRARY LOGIN MENU------");
         this.userLoginMenu = userLoginMenu;
         setMenu_options(Arrays.asList(
-            new MenuOptions("U", "User Login",          
+            new MenuOptions("U", "User Login",
             this::handleUserLogin),
             new MenuOptions("A", "Admin Login",
             this::handleAdminLogin),

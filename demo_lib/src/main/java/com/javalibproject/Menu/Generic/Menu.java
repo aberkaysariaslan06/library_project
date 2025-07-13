@@ -1,4 +1,4 @@
-package com.javalibproject.Menu;
+package com.javalibproject.Menu.Generic;
 
 import java.util.List;
 import java.util.Optional;
@@ -79,11 +79,9 @@ public class Menu {
     protected void print (String message) {
         System.out.print(message);
     }
-    protected void println (String message) {
-        System.out.println(message);
-    }
+    protected void println (String message) {System.out.println(message);}
+    protected void error (String message) {System.err.println(message);}
 
-    
         
         
 }

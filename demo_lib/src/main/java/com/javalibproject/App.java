@@ -3,9 +3,9 @@ package com.javalibproject;
 
 
 
-import com.javalibproject.Menu.MainLoginMenu;
-import com.javalibproject.Menu.Menu;
-import com.javalibproject.Menu.UserLoginMenu;
+import com.javalibproject.Menu.Login.MainLoginMenu;
+import com.javalibproject.Menu.Generic.Menu;
+import com.javalibproject.Menu.Login.UserLoginMenu;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.UserRepository;
 import com.javalibproject.Service.UserService;

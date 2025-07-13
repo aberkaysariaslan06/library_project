@@ -1,11 +1,13 @@
-package com.javalibproject.Menu;
+package com.javalibproject.Menu.Login;
 
 import java.util.Optional;
 
+import com.javalibproject.Menu.Generic.ConsoleReader;
+import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
 
-public class UserLoginMenu extends Menu{
+public class UserLoginMenu extends Menu {
 
     // public UserLoginMenu(String title, UserService userService) {
     //     super("User Login Succesfully ! ", userService);
@@ -31,11 +33,11 @@ public class UserLoginMenu extends Menu{
                 return null; //sonraki menu
             } else {
                 attempts++;
-                println("User login failed: Invalid username or password. Please try again.");
+                error("User login failed: Invalid username or password. Please try again.");
 //                println("Attempts remaining: " + (3 - attempts));
             }
         }
-        println("User login failed: Too many attempts. Please try again later.");
+        error("User login failed: Too many attempts. Please try again later.");
         return null; // main menu
 
 

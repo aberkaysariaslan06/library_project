@@ -1,4 +1,4 @@
-package com.javalibproject.Menu;
+package com.javalibproject.Menu.Generic;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
