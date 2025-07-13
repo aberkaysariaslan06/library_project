@@ -1,26 +1,35 @@
 package com.javalibproject;
 
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
-import com.javalibproject.Menu.ConsoleReader;
+
+
 import com.javalibproject.Menu.MainLoginMenu;
 import com.javalibproject.Menu.Menu;
-import com.javalibproject.Menu.MenuOptions;
+import com.javalibproject.Menu.UserLoginMenu;
+import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Repo.user.UserRepository;
+import com.javalibproject.Service.UserService;
+import com.javalibproject.Service.UserServiceImp;
 
 
 public class App 
 {
     public static void main( String[] args ) 
     {
-       
-      Menu mainMenu = new MainLoginMenu();
-      mainMenu.execute();
-   
+      
+      UserRepository userRepository = new UserRepository();
+      UserService userService = new UserServiceImp(userRepository);
+      UserLoginMenu userLoginMenu = new UserLoginMenu(userService);
+      Menu mainMenu = new MainLoginMenu(userLoginMenu);
+      Menu menu = mainMenu.execute();
+      menu.execute();
         
+    }
+
+    private static void createDummyUsers() {
+      UserRepository userRepository = new UserRepository();
+      userRepository.createUser(new Customer(1, "customer1", "password1", "customerUser", "customerUser", "address", "postCode", "city", "email"));
+      //Integer userId, String username, String password, String firstName, String lastName, String address, String postCode, String city, String email
+          
     }
 }

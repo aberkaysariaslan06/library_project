@@ -2,7 +2,7 @@ package com.javalibproject.Menu;
 
 public interface MenuOptionHandler {
 
-    void handle();
+    Menu handle();
 
     
 }

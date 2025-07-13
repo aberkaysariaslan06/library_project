@@ -17,5 +17,8 @@ public class SystemUser {
     private final Integer userId;
     private final String username;    
     private final String password;
+
+    
+    
     
 }

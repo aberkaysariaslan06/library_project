@@ -3,10 +3,15 @@ package com.javalibproject.Menu;
 import java.util.Arrays;
 import java.util.List;
 
+import com.javalibproject.Service.UserService;
+
 public class MainLoginMenu extends Menu {
 
-      public MainLoginMenu() {
+    private UserLoginMenu userLoginMenu;   
+
+      public MainLoginMenu(UserLoginMenu userLoginMenu) {
         super("------LIBRARY LOGIN MENU------");
+        this.userLoginMenu = userLoginMenu;
         setMenu_options(Arrays.asList(
             new MenuOptions("U", "User Login",          
             this::handleUserLogin),
@@ -19,14 +24,18 @@ public class MainLoginMenu extends Menu {
         //TODO Auto-generated constructor stub
     }
 
-        private void handleUserLogin() {
-            System.out.println("User login handler executed.");
+        private Menu handleUserLogin() {
+            println("User login handler started.");
+            return userLoginMenu;
+            
         }
-        private void handleAdminLogin() {
-            System.out.println("Admin login handler executed.");
+        private Menu handleAdminLogin() {
+            println("Admin login handler executed.");
+            return this;
         }
-        private void handleExit() {
-            System.out.println("Exiting the application.");
+        private Menu handleExit() {
+            println("Exiting the application.");
             System.exit(0);
+            return null;
         }   
 }

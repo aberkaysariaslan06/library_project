@@ -3,7 +3,10 @@ package com.javalibproject.Menu;
 import java.util.List;
 import java.util.Optional;
 
-import lombok.AllArgsConstructor;
+import com.javalibproject.Service.UserService;
+
+
+import lombok.Getter;
 import lombok.Setter;
 
 
@@ -11,9 +14,17 @@ public class Menu {
     private final String title; //Library Login Menu
     @Setter
     private List<MenuOptions> menu_options; // U-User Login, A-Admin Login, X-Exit
+    @Getter
+    private UserService userService;
 
-    public Menu(String title) {
+    public Menu (String title) {
         this.title = title;
+    }
+
+    public Menu(String title, UserService userService) {
+        this.title = title;
+        this.userService = userService;
+        
         
     }
 
@@ -22,21 +33,23 @@ public class Menu {
     //     this.menu_options = menu_options;   
     // }
 
-    public void printOptions() {
-        System.out.println(title);
+    protected void printTitle() {println(title);}
+
+    protected void printOptions() {
+        
         for (MenuOptions option : menu_options) {
-            System.out.println(option.getUserInput() + " - " + option.getTitle());
+            println(option.getUserInput() + " - " + option.getTitle());
             // System.out.printf("(%s) - %s %n", option.getUserInput(), option.getTitle());
         }
-        System.out.println("Enter your choice: ");
+        println("Enter your choice: ");
         
       
     }
-    public MenuOptions getOption() { 
+    protected MenuOptions getOption() { 
         int attempts = 0;
         while (true) {
             final String userInput  = ConsoleReader.readLine();
-            System.out.println("You selected: " + userInput);
+            println("You selected: " + userInput);
 
             Optional<MenuOptions> option = menu_options.stream()
                 .filter(o -> o.getUserInput().equalsIgnoreCase(userInput))
@@ -47,19 +60,27 @@ public class Menu {
             } else {
                 attempts++;
                 if (attempts >= 3) {
-                    System.out.println("Too many invalid attempts. Exiting.");
+                    println("Too many invalid attempts. Exiting.");
                     System.exit(0);
                 }
-                System.out.println("Invalid option selected. Please try again.");
-                System.out.print("New choice: ");
+                println("Invalid option selected. Please try again.");
+                print("New choice: ");
             }
         }
     }
 
-    public void execute() {
-      printOptions();  
-      MenuOptions selectedOption = getOption();
-      selectedOption.getHandler().handle();
+    public Menu execute() {
+        printTitle();
+        printOptions();  
+        printTitle();
+        MenuOptions selectedOption = getOption();
+        return selectedOption.getHandler().handle();
+    }
+    protected void print (String message) {
+        System.out.print(message);
+    }
+    protected void println (String message) {
+        System.out.println(message);
     }
 
     
