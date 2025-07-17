@@ -8,6 +8,9 @@ import com.javalibproject.Service.UserService;
 
 import lombok.Getter;
 import lombok.Setter;
+/*
+ final keywordu ile belirlenen ozellikler degistirilemez o yuzden sadece getter metotu kullanilabilir.eger setterde kullanilmaya calissaydi celisecekti ve ide hata verecekti.
+ */
 
 
 public class Menu {
@@ -69,16 +72,21 @@ public class Menu {
         }
     }
 
-    public Menu execute() {
+    public MenuName execute() {
         printTitle();
         printOptions();  
         printTitle();
         MenuOptions selectedOption = getOption();
-        return selectedOption.getHandler().handle();
+        if (selectedOption.getHandler() != null) {
+            return selectedOption.getHandler().get();   
+        } else {
+            return selectedOption.getMenuName();
+        }
     }
     protected void print (String message) {
         System.out.print(message);
     }
+    protected String printAndGet(String text) { System.out.print(text); return ConsoleReader.readLine();}
     protected void println (String message) {System.out.println(message);}
     protected void error (String message) {System.err.println(message);}
 

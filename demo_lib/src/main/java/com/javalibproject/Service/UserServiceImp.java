@@ -1,7 +1,9 @@
 package com.javalibproject.Service;
 
+import java.util.List;
 import java.util.Optional;
 
+import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Repo.user.UserRepository;
 import com.javalibproject.System.SystemContext;
@@ -21,7 +23,7 @@ public class UserServiceImp implements UserService{
             throw new RuntimeException("Only admin can create users");
         }
         
-        // UserRepository userRepository = new UserRepository();
+        // UserRepository userRepository = new UserRepository(); 
         // userRepository.createUser(user);
         
     }
@@ -41,5 +43,19 @@ public class UserServiceImp implements UserService{
     public Optional<SystemUser> getByUsernameAndPassword(String username, String password) {
         return userRepository.getByUsernameAndPassword(username, password);
     }
+
+    @Override
+    public List<Customer> searchUsers(String searchTerm) {
+        if(SystemContext.isLoggedUserAdmin()) { 
+            return userRepository.searchUsers(searchTerm)
+                .stream()
+                .filter(user -> user instanceof Customer)
+                .map(user -> (Customer) user)
+                .toList();
+        } else {
+            throw new RuntimeException("Only admin can search users");
+        }
+      
+    }   
     
 }

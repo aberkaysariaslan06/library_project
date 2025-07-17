@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
+import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
 
@@ -19,19 +20,18 @@ public class UserLoginMenu extends Menu {
     }
 
     @Override
-    public Menu execute() {
+    public MenuName execute() {
         printTitle();
         int attempts = 0;
         while(attempts<3) {
-            print("User name:");
-            String username = ConsoleReader.readLine();
-            print("Password:");
-            String password = ConsoleReader.readLine();
+            String username = printAndGet("User name:");
+            String password = printAndGet("Password:");
+             
             Optional<SystemUser> user = getUserService().getByUsernameAndPassword(username, password);
             if (user.isPresent()) {
                 println("User login successful: " + user.get().getUsername());
-                return null; //sonraki menu
-            } else {
+                return MenuName.USER_MAIN_MENU; //sonraki menu
+            } else { 
                 attempts++;
                 error("User login failed: Invalid username or password. Please try again.");
 //                println("Attempts remaining: " + (3 - attempts));

@@ -3,39 +3,28 @@ package com.javalibproject.Menu.Login;
 import java.util.Arrays;
 
 import com.javalibproject.Menu.Generic.Menu;
+import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
 
 public class MainLoginMenu extends Menu {
 
-    private UserLoginMenu userLoginMenu;   
-
       public MainLoginMenu(UserLoginMenu userLoginMenu) {
         super("------LIBRARY LOGIN MENU------");
-        this.userLoginMenu = userLoginMenu;
+        
         setMenu_options(Arrays.asList(
             new MenuOptions("U", "User Login",
-            this::handleUserLogin),
+            MenuName.USER_LOGIN),
             new MenuOptions("A", "Admin Login",
-            this::handleAdminLogin),
+            MenuName.ADMIN_LOGIN),
             new MenuOptions("X", "Exit",
-            this::handleExit)
+            this::exit)
             ));
+            }  
     
-        //TODO Auto-generated constructor stub
-    }
-
-        private Menu handleUserLogin() {
-            println("User login handler started.");
-            return userLoginMenu;
-            
-        }
-        private Menu handleAdminLogin() {
-            println("Admin login handler executed.");
-            return this;
-        }
-        private Menu handleExit() {
+       
+        private MenuName exit() {
             println("Exiting the application.");
-            System.exit(0);
+            System.exit(1);
             return null;
         }   
 }

@@ -9,7 +9,7 @@ import com.javalibproject.Repo.user.SystemUser;
 
 public final class SystemContext {  //kimse bu classi extends etmemeli o yuzden final keywordu kullanildi
 
-    //amacimiz sisteme kim giris yapti ? kullanici mi admin mi ?
+    //amacimiz sisteme kim giris yapti ? kullanici mi admin mi ? 
     
     
     private static Integer loggedInUserID;

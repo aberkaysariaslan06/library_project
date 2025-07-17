@@ -1,17 +1,33 @@
 package com.javalibproject.Menu.Generic;
 
-import lombok.AllArgsConstructor;
+import java.util.function.Supplier;
+
+
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
+
 @Getter
 @Setter
 public class MenuOptions {
     
-    private final String userInput;
-    private final String title;
-    private final MenuOptionHandler handler;
+    private  String userInput;
+    private  String title;
+    // private final MenuOptionHandler handler;
+    private Supplier<MenuName> handler;
+    private MenuName menuName;
 
+    public MenuOptions(String userInput, String title, Supplier<MenuName> handler) {
+        this.userInput = userInput;
+        this.title = title;
+        this.handler = handler;
+    }
+    public MenuOptions(String userInput, String title, MenuName menuName) {
+        this.userInput = userInput;
+        this.title = title;
+        this.menuName = menuName;
+        
+    }
+   
     
 }
