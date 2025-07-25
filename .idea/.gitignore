@@ -1,6 +1,8 @@
 # Derleme çıktıları
-target/
 *.class
+*.jar
+target/
+**/target/
 
 # IntelliJ IDEA
 .idea/

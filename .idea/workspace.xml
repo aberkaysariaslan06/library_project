@@ -6,25 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3bb99f43-e433-4d18-9dc5-037e2dd09beb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Exceptions/UserLoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Exceptions/UserLoginException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/AdminMainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/AdminMainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/ConsoleReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/ConsoleReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuName.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuOptions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/AdminLoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/AdminLoginMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/MainLoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/MainLoginMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/UserLoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/UserLoginMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/AdminUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/AdminUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/SystemUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/SystemUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Service/UserServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/System/SystemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/System/SystemContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/demo_lib-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/demo_lib-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +40,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Debug",
+    "Application.App.executor": "Run",
+    "Maven.demo_lib [clean,install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
