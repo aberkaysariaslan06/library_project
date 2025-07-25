@@ -3,7 +3,7 @@ package com.javalibproject;
 import com.javalibproject.Menu.Login.AdminLoginMenu;
 import com.javalibproject.Menu.Login.MainLoginMenu;
 import com.javalibproject.Menu.Admin.AdminMainMenu;
-import com.javalibproject.Menu.Admin.SearchUsersMenu;
+import com.javalibproject.Menu.Admin.UserOperation.SearchUsersMenu;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Login.UserLoginMenu;
