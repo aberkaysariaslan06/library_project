@@ -7,6 +7,7 @@ import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
+import com.javalibproject.System.SystemContext;
 
 public class UserLoginMenu extends Menu {
 
@@ -29,6 +30,7 @@ public class UserLoginMenu extends Menu {
              
             Optional<SystemUser> user = getUserService().getByUsernameAndPassword(username, password);
             if (user.isPresent()) {
+                SystemContext.logInUser(user.get());
                 println("User login successful: " + user.get().getUsername());
                 return MenuName.USER_MAIN_MENU; //sonraki menu
             } else { 

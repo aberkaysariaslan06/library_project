@@ -15,13 +15,13 @@ public class AdminMainMenu extends Menu {
         super("------ADMIN MAIN MENU------");
         setMenu_options(Arrays.asList(
             new MenuOptions("U", "Search User",
-            MenuName.SEARCH_USERS),
+            MenuName.ADMIN_SEARCH_USERS),
             new MenuOptions("C", "Create User",
-            MenuName.CREATE_USERS),
+            MenuName.ADMIN_SEARCH_USERS),
             new MenuOptions("B", "Search Book",
-            MenuName.SEARCH_BOOKS),
+            MenuName.ADMIN_SEARCH_USERS),
             new MenuOptions("K", "Create Book",
-            MenuName.CREATE_BOOKS),
+            MenuName.ADMIN_SEARCH_USERS),
             new MenuOptions("O", "Log Off",
             MenuName.LOG_OFF) 
             ));

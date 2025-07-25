@@ -8,6 +8,7 @@ import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.AdminUser;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
+import com.javalibproject.System.SystemContext;
 
 public class AdminLoginMenu extends Menu {
 
@@ -31,11 +32,12 @@ public class AdminLoginMenu extends Menu {
             Optional<SystemUser> user = getUserService().getByUsernameAndPassword(username, password);
             if (user.isPresent()) {
                 if (user.get() instanceof AdminUser) {
+                    SystemContext.logInUser(user.get());
                    println("Admin login successful: " + user.get().getUsername());
                     return MenuName.ADMIN_MAIN_MENU; // sonraki menu
                 } else {
                 error("Admin login failed: " + user.get().getUsername() + " is not an admin user.");
-                    return null; //main menu
+                    return execute(); //main menu
                 }
 
             } else {
