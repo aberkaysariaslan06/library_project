@@ -17,11 +17,11 @@ public class AdminMainMenu extends Menu {
             new MenuOptions("U", "Search User",
             MenuName.ADMIN_SEARCH_USERS),
             new MenuOptions("C", "Create User",
-            MenuName.ADMIN_SEARCH_USERS),
+            MenuName.ADMIN_CREATE_USERS),
             new MenuOptions("B", "Search Book",
-            MenuName.ADMIN_SEARCH_USERS),
+            MenuName.ADMIN_SEARCH_BOOKS),
             new MenuOptions("K", "Create Book",
-            MenuName.ADMIN_SEARCH_USERS),
+            MenuName.ADMIN_CREATE_BOOKS),
             new MenuOptions("O", "Log Off",
             MenuName.LOG_OFF) 
             ));

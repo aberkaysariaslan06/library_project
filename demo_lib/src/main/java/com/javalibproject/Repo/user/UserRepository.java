@@ -1,10 +1,6 @@
 package com.javalibproject.Repo.user;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /*
  * herhangi bir veritabani kullanmadigimiz icin bu sinifi liste olarak tasarlandi.
@@ -14,12 +10,27 @@ public class UserRepository {
 
     private final Map<Integer, SystemUser> users = new HashMap<>();
 
-    public void createUser(SystemUser customer) {
-        if (customer != null && !users.containsKey(customer.getUserId())) {
-            users.put(customer.getUserId(), customer);
-        } else {
-            throw new IllegalArgumentException("User already exists or is null");
-        }
+    public void createUser(SystemUser user) {
+        Integer maxId = users.keySet().stream().max(Comparator.naturalOrder()).orElse(1); // max userId'yi bulur, eger yoksa 1 olarak baslar
+        Integer newUserId = maxId + 1; // yeni userId'yi maxId + 1 olarak belirler
+
+        //admin olusturalamaz diye attigimiz kirk takla
+        SystemUser newUser = switch (user) {
+            case AdminUser a -> new AdminUser(newUserId, a.getUsername(), a.getPassword());
+            case Customer c -> new Customer(newUserId,
+                    c.getUsername(),
+                    c.getPassword(),
+                    c.getFirstName(),
+                    c.getLastName(),
+                    c.getAddress(),
+                    c.getPostCode(),
+                    c.getCity(),
+                    c.getEmail());
+            default -> throw new RuntimeException("Only customer or admin can be created");
+        };
+
+        users.put(newUserId, newUser);
+
     }
     public void deleteUserByUserId(Integer userId) {
         if (userId != null && users.containsKey(userId)) {
@@ -63,5 +74,9 @@ public class UserRepository {
 
     public Optional<SystemUser> getById(Integer userId) {
         return Optional.ofNullable(users.get(userId));
+    }
+
+    public void updateUser(Customer updatedCustomer) {
+        users.put(updatedCustomer.getUserId(), updatedCustomer);
     }
 }

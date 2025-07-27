@@ -45,11 +45,7 @@ public class ViewUsersMenu extends Menu {
 
     @Override
     public MenuName execute() {
-
-
-
         printTitle();
-
         String userId = SystemContext.getProperty(USER_ID);
         if(userId == null ||userId.isEmpty()) {
             error("User ID is not set. Please search for a user first.");

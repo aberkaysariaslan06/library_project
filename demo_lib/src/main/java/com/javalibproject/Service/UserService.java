@@ -14,7 +14,10 @@ public interface UserService {
    Optional<SystemUser> getByUsernameAndPassword(String username, String password);
    List<Customer> searchUsers(String searchTerm); //System User kullanmadik sonucta biz adminleri degil sadece customerlari search edebilecegiz.
 
+    //tek bir seyi almak istedigimizde ve null gibi bir durum ile ugrasmak istemedigimizde Optional kullanabiliriz.
     Optional<Customer> getById(Integer userId);
 
-    //tek bir seyi almak istedigimizde ve null gibi bir durum ile ugrasmak istemedigimizde Optional kullanabiliriz.
+    void updateUser(Customer updatedCustomer);
+
+
 } 

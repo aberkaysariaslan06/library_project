@@ -14,11 +14,13 @@ import lombok.AllArgsConstructor;
 public class UserServiceImp implements UserService{
  
     private final UserRepository userRepository;
+    private final MailService mailService;
 
     @Override
     public void createUser(SystemUser user) {
         if(SystemContext.isLoggedUserAdmin()) {
             userRepository.createUser(user);
+            mailService.sendUserCreatedMail(user);
         } else {
             throw new RuntimeException("Only admin can create users");
         }
@@ -64,6 +66,13 @@ public class UserServiceImp implements UserService{
 
             .map(systemUser -> (Customer) systemUser);
 
+
+    }
+
+    @Override
+    public void updateUser(Customer updatedCustomer) {
+        userRepository.updateUser(updatedCustomer);
+        mailService.sendUserUpdatedMail(updatedCustomer);
 
     }
 

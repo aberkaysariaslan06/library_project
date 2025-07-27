@@ -55,5 +55,8 @@ public final class SystemContext {  //kimse bu classi extends etmemeli o yuzden 
         loggedInUserID = null; // logged out
         isLoggedUserAdmin = false; // reset admin status
     }
-    
+
+    public static void removeProperty(String key) {
+        properties.remove(key);
+    }
 }
