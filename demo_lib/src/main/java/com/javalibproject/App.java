@@ -1,5 +1,7 @@
 package com.javalibproject;
 
+import com.javalibproject.Menu.Admin.UserOperation.ViewUsersMenu;
+import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Login.AdminLoginMenu;
 import com.javalibproject.Menu.Login.MainLoginMenu;
 import com.javalibproject.Menu.Admin.AdminMainMenu;
@@ -26,6 +28,8 @@ public class App
       AdminLoginMenu adminLoginMenu = new AdminLoginMenu(userService);
       AdminMainMenu adminMainMenu = new AdminMainMenu();
       SearchUsersMenu searchUsersMenu = new SearchUsersMenu(userService);
+
+      ViewUsersMenu viewUsersMenu = new ViewUsersMenu(userService);
       Menu mainLoginMenu = new MainLoginMenu(userLoginMenu);
       MenuName menuName = MenuName.MAIN_LOGIN;
 
@@ -36,6 +40,7 @@ public class App
             case ADMIN_SEARCH_USERS -> searchUsersMenu.execute();
             case ADMIN_MAIN_MENU -> adminMainMenu.execute();
             case USER_MAIN_MENU -> userLoginMenu.execute();
+            case ADMIN_VIEW_USERS -> viewUsersMenu.execute();
             case LOG_OFF -> userLoginMenu.execute();
             default -> mainLoginMenu.execute();
 

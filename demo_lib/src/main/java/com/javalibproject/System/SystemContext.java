@@ -17,10 +17,9 @@ public final class SystemContext {  //kimse bu classi extends etmemeli o yuzden 
     private static Integer loggedInUserID;
     private static boolean isLoggedUserAdmin = false;
     public static final Map<String,String> properties = new HashMap<>();
-
     public static void addProperty(String name, String value) {
         properties.put(name, value);
-    } 
+    }
     public static String getProperty(String name) {
         return properties.get(name);
     }

@@ -11,9 +11,11 @@ import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
-public class SearchUsersMenu extends Menu {
-    public static final String USER_ID = SystemContext.getProperty("USER_ID");
+import static com.javalibproject.Menu.Admin.UserOperation.ViewUsersMenu.USER_ID;
 
+public class SearchUsersMenu extends Menu {
+    //public static final String USER_ID = SystemContext.getProperty("USER_ID");
+    private static final String USER_ID_KEY = USER_ID; // Define a constant for user ID
 
     // public UserLoginMenu(String title, UserService userService) {
     //     super("User Login Succesfully ! ", userService);

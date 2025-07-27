@@ -44,7 +44,7 @@ public class Menu {
             println(option.getUserInput() + " - " + option.getTitle());
             // System.out.printf("(%s) - %s %n", option.getUserInput(), option.getTitle());
         }
-        println("Enter your choice: ");
+        print("Enter your choice: ");
         
       
     }
@@ -76,9 +76,13 @@ public class Menu {
         printTitle();
         printOptions();  
         printTitle();
+        return run();
+
+    }
+    protected MenuName run () {
         MenuOptions selectedOption = getOption();
         if (selectedOption.getHandler() != null) {
-            return selectedOption.getHandler().get();   
+            return selectedOption.getHandler().get();
         } else {
             return selectedOption.getMenuName();
         }

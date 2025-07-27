@@ -56,6 +56,15 @@ public class UserServiceImp implements UserService{
             throw new RuntimeException("Only admin can search users");
         }
       
-    }   
-    
+    }
+
+    @Override
+    public Optional<Customer> getById(Integer userId) {
+        return userRepository.getById(userId)
+
+            .map(systemUser -> (Customer) systemUser);
+
+
+    }
+
 }

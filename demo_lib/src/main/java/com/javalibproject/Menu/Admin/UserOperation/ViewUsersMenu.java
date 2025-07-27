@@ -1,62 +1,87 @@
 package com.javalibproject.Menu.Admin.UserOperation;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
+import com.javalibproject.Menu.Generic.MenuOptions;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
-public class ViewUsersMenu extends Menu {
-    
-    public static final String USER_ID = "USER_ID"; // Define a constant for user ID
+import javax.swing.text.View;
 
-    // public UserLoginMenu(String title, UserService userService) {
+public class ViewUsersMenu extends Menu {
+
+    public static final String USER_ID = "USER_ID"; // Define a constant for user ID
+        // public UserLoginMenu(String title, UserService userService) {
     //     super("User Login Succesfully ! ", userService);
     //     //TODO Auto-generated constructor stub
     // }
-    public ViewUsersMenu(UserService userService){
+
+    public ViewUsersMenu(UserService userService) {
         super("View Users Menu", userService);
+
+        setMenu_options(Arrays.asList(
+                new MenuOptions("E", "Edit User",
+                        MenuName.ADMIN_EDIT_USERS),
+                new MenuOptions("D", "Delete User",
+                        MenuName.ADMIN_DELETE_USERS),
+                new MenuOptions("M", "Back to Main Menu",
+                       MenuName.ADMIN_MAIN_MENU)
+        ));
+
+
              
+    }
+    private void printfItem(String label, String value) {
+        System.out.printf("%-20s: %s%n", label, value);
     }
 
     @Override
     public MenuName execute() {
-        printTitle();
-        SystemContext.getProperty(USER_ID);
-            
-       
-        String searchTerm = printAndGet("Enter username to search:");     
-        List<Customer> customers = getUserService().searchUsers(searchTerm);
-        if(customers.isEmpty()) {
-            error("No users found with the username: " + searchTerm);
-            // return execute(); // main menu
-            // return MenuName.SEARCH_USERS;    
-        } else {
-            System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Username", "First Name", "Last Name", "Email");
-            for (Customer customer : customers) {
-                System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n", 
-                    customer.getUserId(), customer.getUsername(), customer.getFirstName(), customer.getLastName(), customer.getEmail());
-            }
-            String choice = printAndGet("Enter user ID to see OR 'X' to go back to main menu:");
-            if (choice.equalsIgnoreCase("X")) {
-                return MenuName.ADMIN_MAIN_MENU; // go back to admin main menu
 
-            } else {
-                boolean idExist = customers.stream()
-                    .anyMatch(customer -> customer.getUserId().toString().equals(choice));
-                if (idExist) {
-                    return MenuName.ADMIN_VIEW_USERS; // go to view user detail
-                } else {
-                    return execute();
-                }
-            }
+
+
+        printTitle();
+
+        String userId = SystemContext.getProperty(USER_ID);
+        if(userId == null ||userId.isEmpty()) {
+            error("User ID is not set. Please search for a user first.");
+            return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
-        return execute();
+        try {
+            Optional<Customer> customerOptional = getUserService().getById(Integer.valueOf(userId));
+            Customer customer1 = customerOptional.orElseThrow();
+
+            printfItem("User ID", customer1.getUserId().toString());
+            printfItem("Username", customer1.getUsername());
+            printfItem("First Name", customer1.getFirstName());
+            printfItem("Last Name", customer1.getLastName());
+            printfItem("Email", customer1.getEmail());
+            printfItem("Address", customer1.getAddress());
+            printfItem("Post Code", customer1.getPostCode());
+            printfItem("City", customer1.getCity());
+
+        } catch (ViewUsersException vue) {
+            error("Invalid User ID format: " + userId);
+            return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
+        }
+
+
+        println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
+        printOptions();
+        return run();
+
+
     }
 }
+
+
+
 

@@ -60,5 +60,8 @@ public class UserRepository {
         // .findAny().isPresent();
     }
 
-    
+
+    public Optional<SystemUser> getById(Integer userId) {
+        return Optional.ofNullable(users.get(userId));
+    }
 }
