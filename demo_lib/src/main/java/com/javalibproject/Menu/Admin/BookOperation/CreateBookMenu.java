@@ -1,4 +1,4 @@
-package com.javalibproject.Menu.Admin.UserOperation;
+package com.javalibproject.Menu.Admin.BookOperation;
 
 import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.ConsoleReader;
@@ -10,7 +10,7 @@ import com.javalibproject.System.SystemContext;
 
 import java.util.Optional;
 
-public class CreateUsersMenu extends Menu {
+public class CreateBookMenu extends Menu {
 
     public static final String USER_ID = "USER_ID"; // Define a constant for user ID
         // public UserLoginMenu(String title, UserService userService) {
@@ -18,8 +18,8 @@ public class CreateUsersMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
 
-    public CreateUsersMenu(UserService userService) {
-        super("Create Users Menu", userService);
+    public CreateBookMenu(UserService userService) {
+        super("Create Book Menu", userService);
 
              
     }

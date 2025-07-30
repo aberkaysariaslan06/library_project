@@ -1,4 +1,4 @@
-package com.javalibproject.Menu.Admin.UserOperation;
+package com.javalibproject.Menu.Admin.BookOperation;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.javalibproject.System.SystemContext;
 
 import javax.swing.text.View;
 
-public class ViewUsersMenu extends Menu {
+public class ViewBookMenu extends Menu {
 
     public static final String USER_ID = "USER_ID"; // Define a constant for user ID
         // public UserLoginMenu(String title, UserService userService) {
@@ -24,8 +24,8 @@ public class ViewUsersMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
 
-    public ViewUsersMenu(UserService userService) {
-        super("View Users Menu", userService);
+    public ViewBookMenu(UserService userService) {
+        super("View Book Menu", userService);
 
         setMenu_options(Arrays.asList(
                 new MenuOptions("E", "Edit User",

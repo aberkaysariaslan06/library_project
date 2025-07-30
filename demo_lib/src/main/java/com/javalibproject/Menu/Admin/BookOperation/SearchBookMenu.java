@@ -1,4 +1,6 @@
-package com.javalibproject.Menu.Admin.UserOperation;
+package com.javalibproject.Menu.Admin.BookOperation;
+
+import static com.javalibproject.Menu.Admin.BookOperation.ViewBookMenu.USER_ID;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +13,7 @@ import com.javalibproject.Repo.user.SystemUser;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
-import static com.javalibproject.Menu.Admin.UserOperation.ViewUsersMenu.USER_ID;
-
-public class SearchUsersMenu extends Menu {
+public class SearchBookMenu extends Menu {
     //public static final String USER_ID = SystemContext.getProperty("USER_ID");
     private static final String USER_ID_KEY = USER_ID; // Define a constant for user ID
 
@@ -21,8 +21,8 @@ public class SearchUsersMenu extends Menu {
     //     super("User Login Succesfully ! ", userService);
     //     //TODO Auto-generated constructor stub
     // }
-    public SearchUsersMenu(UserService userService){
-        super("Search Users Menu", userService);
+    public SearchBookMenu(UserService userService){
+        super("Search Book Menu", userService);
              
     }
 
