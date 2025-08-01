@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import com.javalibproject.Repo.user.AdminUser;
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.SystemUser;
 
 public class BookRepository {
     private final Map<Integer, Book> books = new HashMap<>();
@@ -30,10 +27,9 @@ public class BookRepository {
     }
     public List<Book> searchBooks(String searchTerm) {
         return books.values().stream().filter(b -> searchBook(b, searchTerm))
-            .toList(); // Java 16 ile gelen toList() metodu, stream'den listeye donus yapar
-            
-           
+            .toList(); // Java 16 ile gelen toList() metodu, stream'den listeye donus yapar  
     }
+    
     private boolean searchBook(Book book, String searchTerm){
          
              
@@ -56,7 +52,7 @@ public class BookRepository {
    
 
     public void updateBook(Book updatedBook) {
-        book.put(updatedBook.(), updatedBook);
+        books.put(updatedBook.id(), updatedBook);
     }
     
 }

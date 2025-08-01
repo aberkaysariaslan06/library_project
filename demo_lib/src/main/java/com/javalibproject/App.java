@@ -5,12 +5,20 @@ import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Login.AdminLoginMenu;
 import com.javalibproject.Menu.Login.MainLoginMenu;
 import com.javalibproject.Menu.Admin.AdminMainMenu;
+import com.javalibproject.Menu.Admin.BookOperation.CreateBookMenu;
+import com.javalibproject.Menu.Admin.BookOperation.DeleteBookMenu;
+import com.javalibproject.Menu.Admin.BookOperation.EditBookMenu;
+import com.javalibproject.Menu.Admin.BookOperation.SearchBookMenu;
+import com.javalibproject.Menu.Admin.BookOperation.ViewBookMenu;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Login.UserLoginMenu;
 import com.javalibproject.Repo.user.AdminUser;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.UserRepository;
+import com.javalibproject.Repo.user.book.BookRepository;
+import com.javalibproject.Service.BookService;
+import com.javalibproject.Service.BookServiceImp;
 import com.javalibproject.Service.MailService;
 import com.javalibproject.Service.MailServiceImp;
 import com.javalibproject.Service.UserService;
@@ -23,17 +31,19 @@ public class App
     {
       
       UserRepository userRepository = new UserRepository();
-      createDummyUsers(userRepository);
+      BookRepository bookRepository = new BookRepository();
+      createDummyUsers(userRepository); 
       MailService mailService = new MailServiceImp(userRepository);
       UserService userService = new UserServiceImp(userRepository, mailService);
+      BookService bookService = new BookServiceImp(bookRepository);
       UserLoginMenu userLoginMenu = new UserLoginMenu(userService);
       AdminLoginMenu adminLoginMenu = new AdminLoginMenu(userService);
       AdminMainMenu adminMainMenu = new AdminMainMenu();
-      SearchUsersMenu searchUsersMenu = new SearchUsersMenu(userService);
-      ViewUsersMenu viewUsersMenu = new ViewUsersMenu(userService);
-      EditUsersMenu editUsersMenu = new EditUsersMenu(userService);
-      DeleteUsersMenu deleteUsersMenu = new DeleteUsersMenu(userService);
-      CreateUsersMenu createUsersMenu = new CreateUsersMenu(userService);
+      SearchBookMenu searchUsersMenu = new SearchBookMenu(bookService);
+      ViewBookMenu viewUsersMenu = new ViewBookMenu(bookService);
+      EditBookMenu editUsersMenu = new EditBookMenu(bookService);
+      DeleteBookMenu deleteUsersMenu = new DeleteBookMenu(bookService);
+      CreateBookMenu createUsersMenu = new CreateBookMenu(bookService);
 
       Menu mainLoginMenu = new MainLoginMenu(userLoginMenu);
       MenuName menuName = MenuName.MAIN_LOGIN;

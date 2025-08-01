@@ -1,6 +1,6 @@
 package com.javalibproject.Menu.Admin.BookOperation;
 
-import static com.javalibproject.Menu.Admin.BookOperation.ViewBookMenu.USER_ID;
+import static com.javalibproject.Menu.Admin.BookOperation.ViewBookMenu.BOOK_ID;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,19 +10,17 @@ import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Repo.user.book.Book;
+import com.javalibproject.Service.BookService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
 public class SearchBookMenu extends Menu {
-    //public static final String USER_ID = SystemContext.getProperty("USER_ID");
-    private static final String USER_ID_KEY = USER_ID; // Define a constant for user ID
+    
+    public static final String BOOK_ID = "BOOK_ID"; // Define a constant for book ID
 
-    // public UserLoginMenu(String title, UserService userService) {
-    //     super("User Login Succesfully ! ", userService);
-    //     //TODO Auto-generated constructor stub
-    // }
-    public SearchBookMenu(UserService userService){
-        super("Search Book Menu", userService);
+    public SearchBookMenu(BookService bookService){
+        super("Search Book Menu", bookService);
              
     }
 
@@ -30,27 +28,27 @@ public class SearchBookMenu extends Menu {
     public MenuName execute() {
         // printTitle();
         String searchTerm = printAndGet("Enter username to search:");     
-        List<Customer> customers = getUserService().searchUsers(searchTerm);
-        if(customers.isEmpty()) {
-            error("No users found with the username: " + searchTerm);
+        List<Book> books = getBookService().searchBooks(searchTerm);
+        if(books.isEmpty()) {
+            error("No users found with the book name: " + searchTerm);
             // return execute(); // main menu
             // return MenuName.SEARCH_USERS;    
         } else {
-            System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Username", "First Name", "Last Name", "Email");
-            for (Customer customer : customers) {
+            System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Title", "Year", "Author");
+            for (Book b : books) {
                 System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n", 
-                    customer.getUserId(), customer.getUsername(), customer.getFirstName(), customer.getLastName(), customer.getEmail());
+                    b.id(), b.title(), b.year(), b.author());
             }
-            String choice = printAndGet("Enter user ID to see OR 'X' to go back to main menu:");
+            String choice = printAndGet("Enter book ID to see OR 'X' to go back to main menu:");
             if (choice.equalsIgnoreCase("X")) {
                 return MenuName.ADMIN_MAIN_MENU; // go back to admin main menu
 
             } else {
-                boolean idExist = customers.stream()
-                    .anyMatch(customer -> customer.getUserId().toString().equals(choice));
+                boolean idExist = books.stream()
+                    .anyMatch(b -> b.id().toString().equals(choice));
                 if (idExist) {
-                    SystemContext.addProperty(USER_ID, choice);
-                    return MenuName.ADMIN_VIEW_USERS; // go to view user detail
+                    SystemContext.addProperty(BOOK_ID, choice);
+                    return MenuName.ADMIN_VIEW_BOOKS; // go to view book detail
                 } else {
                     return execute();
                 }
