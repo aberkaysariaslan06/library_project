@@ -27,17 +27,20 @@ public class SearchBookMenu extends Menu {
     @Override
     public MenuName execute() {
         // printTitle();
-        String searchTerm = printAndGet("Enter username to search:");     
+        String searchTerm = printAndGet("Enter book name to search:");
         List<Book> books = getBookService().searchBooks(searchTerm);
         if(books.isEmpty()) {
-            error("No users found with the book name: " + searchTerm);
+            error("No book found with the book name: " + searchTerm);
             // return execute(); // main menu
             // return MenuName.SEARCH_USERS;    
         } else {
-            System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Title", "Year", "Author");
+            //System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Title", "Year", "Author");
+            System.out.printf("%-5s|%-20s|%-20s|%-20s %n", "ID", "Title", "Year", "Author");
+
             for (Book b : books) {
-                System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n", 
-                    b.id(), b.title(), b.year(), b.author());
+                //System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n",
+                System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s %n",
+                    b.getBookId(), b.getBookName(), b.getYear(), b.getAuthor());
             }
             String choice = printAndGet("Enter book ID to see OR 'X' to go back to main menu:");
             if (choice.equalsIgnoreCase("X")) {
@@ -45,7 +48,7 @@ public class SearchBookMenu extends Menu {
 
             } else {
                 boolean idExist = books.stream()
-                    .anyMatch(b -> b.id().toString().equals(choice));
+                    .anyMatch(b -> b.getBookId().toString().equals(choice));
                 if (idExist) {
                     SystemContext.addProperty(BOOK_ID, choice);
                     return MenuName.ADMIN_VIEW_BOOKS; // go to view book detail

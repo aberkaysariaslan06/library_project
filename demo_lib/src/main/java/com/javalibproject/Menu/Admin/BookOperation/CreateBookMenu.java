@@ -27,14 +27,16 @@ public class CreateBookMenu extends Menu {
     public MenuName execute() {
         printTitle();
 
-        String title = printAndGet("Book Name");
-        Integer year = Integer.valueOf(printAndGet("Year"));
-        String author = printAndGet("Author");
+        String title = printAndGet("Book Name : ");
+        Integer year = Integer.valueOf(printAndGet("Year : "));
+        String author = printAndGet("Author : ");
         
         Book newBook = new Book(null, title, year, author);
         getBookService().createBook(newBook);
         System.out.println();
-        println("Book created successfully: " + newBook.title());
+        println("Book created successfully: " + newBook.getBookName());
+        println("Press enter to continue ");
+
         ConsoleReader .readLine();
 
         return MenuName.ADMIN_MAIN_MENU;

@@ -33,6 +33,7 @@ public class UserLoginMenu extends Menu {
                 SystemContext.logInUser(user.get());
                 println("User login successful: " + user.get().getUsername());
                 return MenuName.USER_MAIN_MENU; //sonraki menu
+
             } else { 
                 attempts++;
                 error("User login failed: Invalid username or password. Please try again.");

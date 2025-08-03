@@ -13,10 +13,10 @@ public interface BookService {
     
    
     List<Book> searchBooks(String searchTerm); 
-    Optional<Customer> getByBookId(Integer bookId);
+    Optional<Book> getByBookId(Integer bookId);
 
     void updateBook(Book book);
-    
 
-    
+
+    List<Book> searchBooksBorrowedByUserId(Integer loggedInUserID);
 }

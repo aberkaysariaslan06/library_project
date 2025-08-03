@@ -44,6 +44,11 @@ public class BookServiceImp implements BookService {
         // Implementation for updating a book
     }
 
-  
-    
+    @Override
+    public List<Book> searchBooksBorrowedByUserId(Integer userId) {
+        return bookRepository.searchBooksBorrowedByUserId(userId);
+
+    }
+
+
 }

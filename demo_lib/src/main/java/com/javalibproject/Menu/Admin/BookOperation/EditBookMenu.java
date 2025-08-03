@@ -24,15 +24,6 @@ public class EditBookMenu extends Menu {
 
              
     }
-    private String printfAndGet (String label, String value) { //edit book properties function
-        System.out.printf("%-20s: %s --> New Value : ", label, value);
-        String input = ConsoleReader.readLine();
-        if(input == null || input.trim().equals("")) {
-            return value; // if no input, keep the old value(bosluga bastim edit yapma demek icin)
-        } else  {
-            return input; // return the new value
-        }
-    }
 
     @Override
     public MenuName execute() {
@@ -47,17 +38,17 @@ public class EditBookMenu extends Menu {
             Book book1 = bookOptional.orElseThrow();
 
            //String id  = printfAndGet("User ID", customer1.getUserId().toString());
-           String title = printfAndGet("Book Name", book1.title());
-           Integer year = Integer.valueOf(printfAndGet("Year", book1.year().toString()));
-           String author = printfAndGet("Author", book1.author());
+           String title = printfAndGet("Book Name", book1.getBookName());
+           Integer year = Integer.valueOf(printfAndGet("Year", book1.getYear().toString()));
+           String author = printfAndGet("Author", book1.getAuthor());
            
 
-           Book updatedBook = new Book(book1.id(), // keep the same ID
+           Book updatedBook = new Book(book1.getBookId(), // keep the same ID
                 title,year,author
             );
 
             getBookService().updateBook(updatedBook);
-            println("Book updated successfully: " + updatedBook.title());
+            println("Book updated successfully: " + updatedBook.getBookName());
             SystemContext.removeProperty(BOOK_ID); // clear the book ID after update
             return MenuName.ADMIN_MAIN_MENU;
     } catch (ViewUsersException vue) {

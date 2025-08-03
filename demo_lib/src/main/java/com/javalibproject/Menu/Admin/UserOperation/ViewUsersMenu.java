@@ -39,9 +39,7 @@ public class ViewUsersMenu extends Menu {
 
              
     }
-    private void printfItem(String label, String value) {
-        System.out.printf("%-20s: %s%n", label, value);
-    }
+
 
     @Override
     public MenuName execute() {

@@ -17,7 +17,7 @@ public class MailServiceImp implements MailService{
 
     @Override
     public void sendUserUpdatedMail(SystemUser user) {
-        System.out.println("Hello%s, your user information is updated. %n " + user.getUsername());
+        System.out.println("Hello !, your user information is updated.\n " + user.getUsername());
 
 
     }
