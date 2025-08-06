@@ -17,7 +17,7 @@ public class AdminLoginMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
     public AdminLoginMenu(UserService userService){
-        super("Admin Login Menu", userService);
+        super("------ADMIN LOGIN MENU------", userService);
 
     }
 

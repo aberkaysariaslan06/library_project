@@ -18,7 +18,7 @@ public class DeleteBookMenu extends Menu {
  
 
     public DeleteBookMenu(BookService bookService) {
-        super("Delete Book Menu", bookService);
+        super("------DELETE BOOK MENU------", bookService);
 
              
     }
@@ -38,8 +38,8 @@ public class DeleteBookMenu extends Menu {
 
 
 
-            getBookService().deleteBookByBookId(book1.id());
-            println("Book deleted successfully" + book1.id() + " - " + book1.title());
+            getBookService().deleteBookByBookId(book1.getBookId());
+            println("Book deleted successfully" + "Deleted book id - name : " + book1.getBookId() + " - " + book1.getBookName());
             SystemContext.removeProperty(BOOK_ID); // clear the user ID after deletion
             return MenuName.ADMIN_MAIN_MENU;
     } catch (ViewUsersException vue) {

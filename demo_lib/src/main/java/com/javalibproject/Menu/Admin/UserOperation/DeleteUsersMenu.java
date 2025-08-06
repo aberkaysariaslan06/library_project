@@ -1,7 +1,6 @@
 package com.javalibproject.Menu.Admin.UserOperation;
 
 import com.javalibproject.Exceptions.ViewUsersException;
-import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.Customer;
@@ -19,19 +18,11 @@ public class DeleteUsersMenu extends Menu {
     // }
 
     public DeleteUsersMenu(UserService userService) {
-        super("Delete Users Menu", userService);
+        super("------DELETE USER MENU------", userService);
 
              
     }
-    private String printfAndGet (String label, String value) { //edit user properties function
-        System.out.printf("%-20s: %s%n -- New Value", label, value);
-        String input = ConsoleReader.readLine();
-        if(input == null || input.trim().equals("")) {
-            return value; // if no input, keep the old value(bosluga bastim edit yapma demek icin)
-        } else  {
-            return input; // return the new value
-        }
-    }
+  
 
     @Override
     public MenuName execute() {
@@ -48,7 +39,7 @@ public class DeleteUsersMenu extends Menu {
 
 
             getUserService().deleteUserByUserId(customer1.getUserId());
-            println("User deleted successfully" + customer1.getUserId() + " - " + customer1.getUsername());
+            println("User deleted successfully ! " +  "Customer id - username :" + customer1.getUserId() + " - " + customer1.getUsername());
             SystemContext.removeProperty(USER_ID); // clear the user ID after deletion
             return MenuName.ADMIN_MAIN_MENU;
     } catch (ViewUsersException vue) {

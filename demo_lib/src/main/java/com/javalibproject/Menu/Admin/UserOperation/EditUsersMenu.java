@@ -21,19 +21,11 @@ public class EditUsersMenu extends Menu {
     // }
 
     public EditUsersMenu(UserService userService) {
-        super("Edit Users Menu", userService);
+        super("------EDİT USER MENU------", userService);
 
              
     }
-    private String printfAndGet (String label, String value) { //edit user properties function
-        System.out.printf("%-20s: %s --> New Value : ", label, value);
-        String input = ConsoleReader.readLine();
-        if(input == null || input.trim().equals("")) {
-            return value; // if no input, keep the old value(bosluga bastim edit yapma demek icin)
-        } else  {
-            return input; // return the new value
-        }
-    }
+
 
     @Override
     public MenuName execute() {

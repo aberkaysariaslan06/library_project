@@ -22,7 +22,7 @@ public class SearchUsersMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
     public SearchUsersMenu(UserService userService){
-        super("Search Users Menu", userService);
+        super("------SEARCH USER MENU------", userService);
              
     }
 

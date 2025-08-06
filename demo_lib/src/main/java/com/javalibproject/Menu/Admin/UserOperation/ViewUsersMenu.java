@@ -25,7 +25,7 @@ public class ViewUsersMenu extends Menu {
     // }
 
     public ViewUsersMenu(UserService userService) {
-        super("View Users Menu", userService);
+        super("------VİEW USER MENU------", userService);
 
         setMenu_options(Arrays.asList(
                 new MenuOptions("E", "Edit User",
@@ -39,9 +39,7 @@ public class ViewUsersMenu extends Menu {
 
              
     }
-    private void printfItem(String label, String value) {
-        System.out.printf("%-20s: %s%n", label, value);
-    }
+
 
     @Override
     public MenuName execute() {
@@ -63,6 +61,7 @@ public class ViewUsersMenu extends Menu {
             printfItem("Address", customer1.getAddress());
             printfItem("Post Code", customer1.getPostCode());
             printfItem("City", customer1.getCity());
+            println("--------------------------------");
 
         } catch (ViewUsersException vue) {
             error("Invalid User ID format: " + userId);
@@ -70,7 +69,7 @@ public class ViewUsersMenu extends Menu {
         }
 
 
-        println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
+       
         printOptions();
         return run();
 

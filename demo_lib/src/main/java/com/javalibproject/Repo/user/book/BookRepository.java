@@ -1,11 +1,6 @@
 package com.javalibproject.Repo.user.book;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 
 public class BookRepository {
@@ -15,7 +10,7 @@ public class BookRepository {
         Integer maxId = books.keySet().stream().max(Comparator.naturalOrder()).orElse(1); // max userId'yi bulur, eger yoksa 1 olarak baslar
         Integer newBookId = maxId + 1; // yeni userId'yi maxId + 1 olarak belirler
 
-        Book book = new Book(newBookId, newBook.title(), newBook.year(), newBook.author());
+        Book book = new Book(newBookId, newBook.getBookName(), newBook.getYear(), newBook.getAuthor());
         books.put(newBookId, book);
 
     }
@@ -34,10 +29,10 @@ public class BookRepository {
          
              
         return findIn(searchTerm, 
-            book.id(),
-            book.title(),
-            book.year(),
-            book.author());
+            book.getBookId(),
+            book.getBookName(),
+            book.getYear(),
+            book.getAuthor());
         
 
     }
@@ -52,7 +47,12 @@ public class BookRepository {
    
 
     public void updateBook(Book updatedBook) {
-        books.put(updatedBook.id(), updatedBook);
+        books.put(updatedBook.getBookId(), updatedBook);
     }
-    
+
+    public List<Book> searchBooksBorrowedByUserId(Integer userId) {
+        return books.values().stream().
+                filter(b -> Objects.equals(b.getBorrowedBy(), userId))
+                .toList();
+    }
 }

@@ -19,7 +19,7 @@ public class CreateUsersMenu extends Menu {
     // }
 
     public CreateUsersMenu(UserService userService) {
-        super("Create Users Menu", userService);
+        super("------CREATE USER MENU------", userService);
 
              
     }
@@ -52,6 +52,7 @@ public class CreateUsersMenu extends Menu {
         getUserService().createUser(newCustomer);
         System.out.println();
         println("User created successfully: " + newCustomer.getUsername());
+        println("Devam etmek icin bir tusa basiniz...");
         ConsoleReader .readLine();
 
         return MenuName.ADMIN_MAIN_MENU;

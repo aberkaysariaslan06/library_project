@@ -23,7 +23,7 @@ public class ViewBookMenu extends Menu {
     public static final String BOOK_ID = "BOOK_ID"; // Define a constant for book ID
 
     public ViewBookMenu(BookService bookService) {
-        super("View Book Menu", bookService);
+        super("------VİEW BOOK MENU------", bookService);
 
         setMenu_options(Arrays.asList(
                 new MenuOptions("E", "Edit Book",
@@ -37,9 +37,7 @@ public class ViewBookMenu extends Menu {
 
              
     }
-    private void printfItem(String label, String value) {
-        System.out.printf("%-20s: %s%n", label, value);
-    }
+
 
     @Override
     public MenuName execute() {
@@ -53,10 +51,12 @@ public class ViewBookMenu extends Menu {
             Optional<Book> bookOptional = getBookService().getByBookId(Integer.valueOf(bookId));
             Book book1 = bookOptional.orElseThrow();
 
-            printfItem("Book ID", book1.id().toString());
-            printfItem("Title", book1.title());
-            printfItem("Year", book1.year().toString());
-            printfItem("Author", book1.author());
+            printfItem("Book ID", book1.getBookId().toString());
+            printfItem("Title", book1.getBookName());
+            printfItem("Year", book1.getYear().toString());
+            printfItem("Author", book1.getAuthor());
+            println("--------------------------------");
+
             
         } catch (ViewUsersException vue) {
             error("Invalid Book ID format: " + bookId);
@@ -64,7 +64,7 @@ public class ViewBookMenu extends Menu {
         }
 
 
-        println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
+       
         printOptions();
         return run();
 
