@@ -33,7 +33,7 @@ public class BorrowBookMenu extends ShowBooks {
             // return MenuName.SEARCH_USERS;
         } else {
             showBooks(books);
-            String choice = printAndGet("Enter book ID to see OR 'X' to go back to main menu:");
+            String choice = printAndGet("Enter book ID to borrowed book OR 'X' to go back to main menu:");
             if (choice.equalsIgnoreCase("X")) {
                 return MenuName.USER_MAIN_MENU; // go back to admin main menu
 
