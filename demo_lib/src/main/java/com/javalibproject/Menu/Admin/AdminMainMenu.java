@@ -22,6 +22,8 @@ public class AdminMainMenu extends Menu {
             MenuName.ADMIN_SEARCH_BOOKS),
             new MenuOptions("K", "Create Book",
             MenuName.ADMIN_CREATE_BOOKS),
+            new MenuOptions("W", "View All Books",
+            MenuName.ADMIN_VIEWS_ALL_BOOKS),
             new MenuOptions("O", "Log Off",
             MenuName.LOG_OFF) 
             ));

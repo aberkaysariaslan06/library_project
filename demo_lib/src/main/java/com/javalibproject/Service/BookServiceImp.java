@@ -50,5 +50,11 @@ public class BookServiceImp implements BookService {
 
     }
 
+    @Override
+    public List<Book> getAllBooks() {
+        // TODO Auto-generated method stub
+        return bookRepository.getAllBooks();
+    }
+
 
 }

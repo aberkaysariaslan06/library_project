@@ -28,6 +28,7 @@ public enum MenuName {
     ADMIN_EDIT_BOOKS,
     ADMIN_DELETE_BOOKS,
     ADMIN_VIEW_BOOKS,
+    ADMIN_VIEWS_ALL_BOOKS,
     //OTHER//
     LOG_OFF
 

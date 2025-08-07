@@ -55,4 +55,8 @@ public class BookRepository {
                 filter(b -> Objects.equals(b.getBorrowedBy(), userId))
                 .toList();
     }
+    public List<Book> getAllBooks() {
+        // TODO Auto-generated method stub
+        return new ArrayList<>(books.values());
+    }
 }

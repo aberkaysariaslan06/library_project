@@ -15,6 +15,7 @@ import com.javalibproject.Menu.Admin.BookOperation.CreateBookMenu;
 import com.javalibproject.Menu.Admin.BookOperation.DeleteBookMenu;
 import com.javalibproject.Menu.Admin.BookOperation.EditBookMenu;
 import com.javalibproject.Menu.Admin.BookOperation.SearchBookMenu;
+import com.javalibproject.Menu.Admin.BookOperation.ViewAllBooksMenu;
 import com.javalibproject.Menu.Admin.BookOperation.ViewBookMenu;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
@@ -31,7 +32,7 @@ import com.javalibproject.Service.MailServiceImp;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.Service.UserServiceImp;
 
-
+ 
 public class App 
 {
     public static void main( String[] args ) 
@@ -61,6 +62,7 @@ public class App
       EditBookMenu editBookMenu = new EditBookMenu(bookService);
       DeleteBookMenu deleteBookMenu = new DeleteBookMenu(bookService);
       CreateBookMenu createBookMenu = new CreateBookMenu(bookService);
+      ViewAllBooksMenu viewAllBooksMenu = new ViewAllBooksMenu(bookService);
       //user operation
       UpdateMyProfileMenu updateMyProfileMenu = new UpdateMyProfileMenu(userService);
       ViewMyProfile viewMyProfile = new ViewMyProfile(userService);
@@ -91,6 +93,7 @@ public class App
             case ADMIN_DELETE_BOOKS -> deleteBookMenu.execute();
             case ADMIN_SEARCH_BOOKS -> searchBookMenu.execute();
             case ADMIN_VIEW_BOOKS -> viewBookMenu.execute();
+            case ADMIN_VIEWS_ALL_BOOKS -> viewAllBooksMenu.execute();
             //user profile operation
             case USER_UPDATE_PROFILE -> updateMyProfileMenu.execute();
             case USER_VIEW_PROFILE -> viewMyProfile.execute();
