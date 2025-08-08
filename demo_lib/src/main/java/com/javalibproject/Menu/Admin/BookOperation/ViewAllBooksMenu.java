@@ -8,11 +8,12 @@ import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
+import com.javalibproject.Menu.Generic.ShowBooks;
 import com.javalibproject.Repo.user.book.Book;
 import com.javalibproject.Service.BookService;
 import com.javalibproject.System.SystemContext;
 
-public class ViewAllBooksMenu extends Menu{
+public class ViewAllBooksMenu extends ShowBooks{
     public static final String BOOK_ID = "BOOK_ID"; // Define a constant for book ID
 
     public ViewAllBooksMenu(BookService bookService) {
@@ -26,7 +27,7 @@ public class ViewAllBooksMenu extends Menu{
         ));
 
 
-             
+            
     }
 
 
@@ -38,22 +39,6 @@ public class ViewAllBooksMenu extends Menu{
         return run();
     }
     
-    private void displayAllBooks(){
-        List<Book> books = getBookService().getAllBooks();
-        if(books.isEmpty()){
-            error("No books found");
-            return;
-        } 
-        println("-------BOOK LIST-------");
-        for (Book book : books) {
-            printfItem("Book ID", book.getBookId().toString());
-            printfItem("Title", book.getBookName());
-            printfItem("Year", book.getYear().toString());
-            printfItem("Author", book.getAuthor());
-        }
-            println("--------------------------------");
-
-         
-    }
+ 
     
 }
