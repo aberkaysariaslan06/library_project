@@ -8,15 +8,15 @@
 
 
 '
-" 
+"
 
 Ekleme Onerisi : Admin Main Menüye View All Users şeklinde bir sayfa eklenebilir. Sistemdeki tüm userları görebiliriz.
-Ekleme Onerisi : Ayni sekilde sistemdeki tüm booklari gorebilmek icin de bu saglanabilir.
+Ekleme Onerisi : Ayni sekilde sistemdeki tüm booklari gorebilmek icin de bu saglanabilir. -> tamamlandi.
 Ekleme Onerisi : Search Book dedigimiz zaman birebir, tam eslesme gerekiyor. Burasi biraz daha leak tutulabilir. Ornegin Example Book icin " Book" gibi search yapmak gerekiyor. Veya kucuk harf book yazdigimizda bulmuyor. Kontrol saglanabilir.
 
 
 Refactoring :
-SearchBooks, BorrowBooks ve ReturnBooks için tekrarlayan kodlar için bu alttaki işlem sağlanabilir : 
+SearchBooks, BorrowBooks ve ReturnBooks için tekrarlayan kodlar için bu alttaki işlem sağlanabilir :
 
 generic içine book menu sınıfı eklenerek tekrarlayan kitap listesi kodunu yazan metot buraya eklenebilir. showBooks sayesinde kitapları ekrana yazabilir. Daha sonra tekrarlayan yerlerde bu sınıfı extend ederek showBooks functionu çağrılabilir. (bu func parametre olarak book listesi alıyor.)
 
