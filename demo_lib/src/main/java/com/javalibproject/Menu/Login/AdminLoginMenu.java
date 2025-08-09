@@ -7,6 +7,7 @@ import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.AdminUser;
 import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Service.AdminService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
@@ -16,8 +17,8 @@ public class AdminLoginMenu extends Menu {
     //     super("User Login Succesfully ! ", userService);
     //     //TODO Auto-generated constructor stub
     // }
-    public AdminLoginMenu(UserService userService){
-        super("------ADMIN LOGIN MENU------", userService);
+    public AdminLoginMenu(AdminService adminService){
+        super("------ADMIN LOGIN MENU------", adminService);
 
     }
 
@@ -29,14 +30,14 @@ public class AdminLoginMenu extends Menu {
             String username = printAndGet("User name:");
             String password = printAndGet("Password:");
         
-            Optional<SystemUser> user = getUserService().getByUsernameAndPassword(username, password);
-            if (user.isPresent()) {
-                if (user.get() instanceof AdminUser) {
-                    SystemContext.logInUser(user.get());
-                   println("Admin login successful: " + user.get().getUsername());
+            Optional<AdminUser> adminUser = getAdminService().login(username, password);
+            if (adminUser.isPresent()) {
+                if (adminUser.get() instanceof AdminUser) {
+                    SystemContext.logInUser(adminUser.get());
+                   println("Admin login successful: " + adminUser.get().getUsername());
                     return MenuName.ADMIN_MAIN_MENU; // sonraki menu
                 } else {
-                error("Admin login failed: " + user.get().getUsername() + " is not an admin user.");
+                error("Admin login failed: " + adminUser.get().getUsername() + " is not an admin user.");
                     return execute(); //main menu
                 }
 

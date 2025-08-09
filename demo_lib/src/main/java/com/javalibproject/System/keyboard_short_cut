@@ -20,7 +20,9 @@ SearchBooks, BorrowBooks ve ReturnBooks için tekrarlayan kodlar için bu alttak
 
 generic içine book menu sınıfı eklenerek tekrarlayan kitap listesi kodunu yazan metot buraya eklenebilir. showBooks sayesinde kitapları ekrana yazabilir. Daha sonra tekrarlayan yerlerde bu sınıfı extend ederek showBooks functionu çağrılabilir. (bu func parametre olarak book listesi alıyor.)
 
-benzer işlemler userMenu classı için de oluşturulup sağlanabilir. Hem profil görüntüleme showMyProfile hem de kullanıcı görüntüleme viewUserMenu yeri için refactoring sağlanabilir. tek fark USER_ID aldığı yer. UserID parametre olarak alınıp viewCustomer functionu olarak eklenebilir. yine aynı şekilde gerekli yerlerden extends edilerek MenuName içinde viewUser functionu userId parametresi alınarak kullanılabilir hale getirilebilir.
+benzer işlemler userMenu classı için de oluşturulup sağlanabilir.
+
+Hem profil görüntüleme showMyProfile hem de kullanıcı görüntüleme viewUserMenu yeri için refactoring sağlanabilir. tek fark USER_ID aldığı yer. UserID parametre olarak alınıp viewCustomer functionu olarak eklenebilir. yine aynı şekilde gerekli yerlerden extends edilerek MenuName içinde viewUser functionu userId parametresi alınarak kullanılabilir hale getirilebilir.
 
 
 EditUserMenu ve UpdateMyProfileMenu classı arasında da ortaklıklar mevcut. Tek fark password. password güncellemelerini ortak kullanarak bu classlar içinde ortak bir class yazılarak tek metot kullanımı sağlanabilir.

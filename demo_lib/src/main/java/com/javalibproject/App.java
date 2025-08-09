@@ -25,14 +25,9 @@ import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.UserRepository;
 import com.javalibproject.Repo.user.book.Book;
 import com.javalibproject.Repo.user.book.BookRepository;
-import com.javalibproject.Service.BookService;
-import com.javalibproject.Service.BookServiceImp;
-import com.javalibproject.Service.MailService;
-import com.javalibproject.Service.MailServiceImp;
-import com.javalibproject.Service.UserService;
-import com.javalibproject.Service.UserServiceImp;
+import com.javalibproject.Service.*;
 
- 
+
 public class App 
 {
     public static void main( String[] args ) 
@@ -44,18 +39,20 @@ public class App
       createDummyBooks(bookRepository);
       MailService mailService = new MailServiceImp(userRepository);
       UserService userService = new UserServiceImp(userRepository, mailService);
+      CustomerService customerService = new CustomerServiceImp(userRepository, mailService);
+      AdminService adminService = new AdminServiceImp(userRepository);
       BookService bookService = new BookServiceImp(bookRepository);
       //menu operation
       UserLoginMenu userLoginMenu = new UserLoginMenu(userService);
-      AdminLoginMenu adminLoginMenu = new AdminLoginMenu(userService);
+      AdminLoginMenu adminLoginMenu = new AdminLoginMenu(adminService);
       AdminMainMenu adminMainMenu = new AdminMainMenu();
       //admin user operation
-      CreateUsersMenu createUsersMenu = new CreateUsersMenu(userService);
-      EditUsersMenu editUsersMenu = new EditUsersMenu(userService);
-      ViewUsersMenu viewUsersMenu = new ViewUsersMenu(userService);
-      DeleteUsersMenu deleteUsersMenu = new DeleteUsersMenu(userService);
-      SearchUsersMenu searchUsersMenu = new SearchUsersMenu(userService);
-      ViewAllUsersMenu viewAllUsersMenu = new ViewAllUsersMenu(userService);
+      CreateUsersMenu createUsersMenu = new CreateUsersMenu(customerService);
+      EditUsersMenu editUsersMenu = new EditUsersMenu(customerService);
+      ViewUsersMenu viewUsersMenu = new ViewUsersMenu(customerService);
+      DeleteUsersMenu deleteUsersMenu = new DeleteUsersMenu(customerService);
+      SearchUsersMenu searchUsersMenu = new SearchUsersMenu(customerService);
+      ViewAllUsersMenu viewAllUsersMenu = new ViewAllUsersMenu(customerService);
 
       //admin book operation
       SearchBookMenu searchBookMenu = new SearchBookMenu(bookService);
@@ -116,11 +113,15 @@ public class App
 
     private static void createDummyUsers(UserRepository userRepository) {
 
-      userRepository.createUser(new Customer(1, "customer1", "v", "customerUserTest1", "customerUserTest1", "address1", "postCode1", "city1", "email1@email.com"));
-      userRepository.createUser(new Customer(2, "customer2", "v", "customerUserTest2", "customerUserTest2", "address2", "postCode2", "city2", "email2@email.com"));
+      userRepository.seedAdminIfEmpty("admin", "admin");
+
+
+      userRepository.createCustomer(new Customer(1, "customer1", "v", "customerUserTest1", "customerUserTest1", "address1", "postCode1", "city1", "email1@email.com"));
+      userRepository.createCustomer(new Customer(2, "customer2", "v", "customerUserTest2", "customerUserTest2", "address2", "postCode2", "city2", "email2@email.com"));
 
       //Integer userId, String username, String password, String firstName, String lastName, String address, String postCode, String city, String email
-      userRepository.createUser((new AdminUser(1001, "admin", "admin")));
+      //userRepository.createUser((new AdminUser(1001, "admin", "admin")));
+
     }
 
     private static void createDummyBooks(BookRepository bookRepository) {

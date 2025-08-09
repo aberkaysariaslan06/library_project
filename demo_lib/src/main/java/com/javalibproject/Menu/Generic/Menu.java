@@ -3,7 +3,9 @@ package com.javalibproject.Menu.Generic;
 import java.util.List;
 import java.util.Optional;
 
+import com.javalibproject.Service.AdminService;
 import com.javalibproject.Service.BookService;
+import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 
 
@@ -21,6 +23,9 @@ public class Menu {
     @Getter
     private UserService userService;
     private BookService bookService;
+    private AdminService adminService;
+    private CustomerService customerService;
+
 
     public Menu (String title) {
         this.title = title;
@@ -33,12 +38,23 @@ public class Menu {
         
     }
 
-
     public Menu(String title, BookService bookService) {
         this.title = title;
         this.bookService = bookService;
         
         
+    }
+    public Menu(String title, AdminService adminService) {
+        this.title = title;
+        this.adminService = adminService;
+
+
+    }
+    public Menu(String title, CustomerService customerService) {
+        this.title = title;
+        this.customerService = customerService;
+
+
     }
     protected void printTitle() {println(title);}
 
@@ -110,7 +126,7 @@ public class Menu {
     protected void println (String message) {System.out.println(message);}
     protected void error (String message) {System.err.println(message);}
     protected BookService getBookService() {return bookService;}
-
+    protected AdminService getAdminService() {return adminService;}
         
         
 }

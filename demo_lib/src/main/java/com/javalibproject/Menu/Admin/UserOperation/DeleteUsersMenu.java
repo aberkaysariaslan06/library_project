@@ -4,6 +4,7 @@ import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
@@ -17,8 +18,8 @@ public class DeleteUsersMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
 
-    public DeleteUsersMenu(UserService userService) {
-        super("------DELETE USER MENU------", userService);
+    public DeleteUsersMenu(CustomerService customerService) {
+        super("------DELETE USER MENU------", customerService);
 
              
     }

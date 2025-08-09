@@ -36,17 +36,17 @@ public class UserLoginMenu extends Menu {
 
             } else { 
                 attempts++;
+                println("If you want to back to the main menu, please enter 'X' or 'x'.");
                 error("User login failed: Invalid username or password. Please try again.");
 //                println("Attempts remaining: " + (3 - attempts));
             }
+            String input = ConsoleReader.readLine();
+            if (input.equalsIgnoreCase("X")) return MenuName.MAIN_LOGIN;
+
         }
         error("User login failed: Too many attempts. Please try again later.");
         return null; // main menu
 
-
-    
-
-    
 
 }
 }

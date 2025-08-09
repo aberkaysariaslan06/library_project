@@ -8,6 +8,7 @@ import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
@@ -21,8 +22,8 @@ public class SearchUsersMenu extends Menu {
     //     super("User Login Succesfully ! ", userService);
     //     //TODO Auto-generated constructor stub
     // }
-    public SearchUsersMenu(UserService userService){
-        super("------SEARCH USER MENU------", userService);
+    public SearchUsersMenu(CustomerService customerService){
+        super("------SEARCH USER MENU------", customerService);
              
     }
 

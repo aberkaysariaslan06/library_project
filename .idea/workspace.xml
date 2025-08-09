@@ -5,10 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bb99f43-e433-4d18-9dc5-037e2dd09beb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/AdminUpdateOwnProfileMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/AdminServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/CustomerServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Repo/user/book/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Repo/user/book/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/CreateUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/CreateUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/DeleteUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/DeleteUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/EditUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/EditUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/ViewAllUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/ViewAllUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/MenuName.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/MenuName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/ShowUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Generic/ShowUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Login/AdminLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Login/AdminLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Login/UserLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Menu/Login/UserLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Repo/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Repo/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/Service/UserServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/System/keyboard_short_cut" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/src/main/java/com/javalibproject/System/keyboard_short_cut" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/book/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/book/BookRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/CreateUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/CreateUsersMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/DeleteUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/DeleteUsersMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/EditUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/EditUsersMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/SearchUsersMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Admin/UserOperation/ViewUsersMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuName.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Generic/MenuName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/AdminLoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/AdminLoginMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/MainLoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Menu/Login/MainLoginMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Repo/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo_lib/target/classes/com/javalibproject/Service/UserServiceImp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +48,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -97,5 +128,16 @@
       <updated>1753486517923</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -11,6 +11,7 @@ import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
@@ -24,8 +25,8 @@ public class ViewUsersMenu extends Menu {
     //     //TODO Auto-generated constructor stub
     // }
 
-    public ViewUsersMenu(UserService userService) {
-        super("------VİEW USER MENU------", userService);
+    public ViewUsersMenu(CustomerService customerService) {
+        super("------VİEW USER MENU------", customerService);
 
         setMenu_options(Arrays.asList(
                 new MenuOptions("E", "Edit User",
