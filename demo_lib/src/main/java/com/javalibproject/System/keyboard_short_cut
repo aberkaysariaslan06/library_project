@@ -28,6 +28,6 @@ Hem profil görüntüleme showMyProfile hem de kullanıcı görüntüleme viewUs
 EditUserMenu ve UpdateMyProfileMenu classı arasında da ortaklıklar mevcut. Tek fark password. password güncellemelerini ortak kullanarak bu classlar içinde ortak bir class yazılarak tek metot kullanımı sağlanabilir.
 
 
-Ödev : Biz kodları yazarken müşterileri ve Admini aynı mapler içinde oluşturmuştuk. Farklı maplerde saklamanızı istiyoruz, Admin için ayrı bır sınıf menüsü, müşteri için ayrı bir sınıf menüsü oluşturulabilir.
+Ödev : Biz kodları yazarken müşterileri ve Admini aynı mapler içinde oluşturmuştuk. Farklı maplerde saklamanızı istiyoruz, Admin için ayrı bır sınıf menüsü, müşteri için ayrı bir sınıf menüsü oluşturulabilir.  -> tamamlandı.
 
 
