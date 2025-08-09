@@ -10,9 +10,9 @@
 '
 "
 
-Ekleme Onerisi : Admin Main Menüye View All Users şeklinde bir sayfa eklenebilir. Sistemdeki tüm userları görebiliriz.
+Ekleme Onerisi : Admin Main Menüye View All Users şeklinde bir sayfa eklenebilir. Sistemdeki tüm userları görebiliriz. -> tamamlandı.
 Ekleme Onerisi : Ayni sekilde sistemdeki tüm booklari gorebilmek icin de bu saglanabilir. -> tamamlandi.
-Ekleme Onerisi : Search Book dedigimiz zaman birebir, tam eslesme gerekiyor. Burasi biraz daha leak tutulabilir. Ornegin Example Book icin " Book" gibi search yapmak gerekiyor. Veya kucuk harf book yazdigimizda bulmuyor. Kontrol saglanabilir.
+Ekleme Onerisi : Search Book dedigimiz zaman birebir, tam eslesme gerekiyor. Burasi biraz daha leak tutulabilir. Ornegin Example Book icin " Book" gibi search yapmak gerekiyor. Veya kucuk harf book yazdigimizda bulmuyor. Kontrol saglanabilir.-> tamamlandi.
 
 
 Refactoring :
