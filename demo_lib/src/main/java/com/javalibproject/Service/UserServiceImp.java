@@ -76,4 +76,13 @@ public class UserServiceImp implements UserService{
 
     }
 
+    @Override
+    public List<Customer> getAllUsers() {
+        return userRepository.getAllUsers()
+            .stream()
+            .filter(user -> user instanceof Customer)
+            .map(user -> (Customer) user)
+            .toList();
+    }
+
 }

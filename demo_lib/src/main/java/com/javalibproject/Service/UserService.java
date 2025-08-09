@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.javalibproject.Repo.user.Customer;
 import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Repo.user.book.Book;
 
 public interface UserService {
 
@@ -18,6 +19,8 @@ public interface UserService {
     Optional<Customer> getById(Integer userId);
 
     void updateUser(Customer updatedCustomer);
+
+    List<Customer> getAllUsers();
 
 
 } 

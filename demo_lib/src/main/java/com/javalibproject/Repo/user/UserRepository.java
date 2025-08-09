@@ -79,4 +79,8 @@ public class UserRepository {
     public void updateUser(Customer updatedCustomer) {
         users.put(updatedCustomer.getUserId(), updatedCustomer);
     }
+
+    public Collection<SystemUser> getAllUsers() {
+       return users.values();
+    }
 }

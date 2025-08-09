@@ -55,6 +55,7 @@ public class App
       ViewUsersMenu viewUsersMenu = new ViewUsersMenu(userService);
       DeleteUsersMenu deleteUsersMenu = new DeleteUsersMenu(userService);
       SearchUsersMenu searchUsersMenu = new SearchUsersMenu(userService);
+      ViewAllUsersMenu viewAllUsersMenu = new ViewAllUsersMenu(userService);
 
       //admin book operation
       SearchBookMenu searchBookMenu = new SearchBookMenu(bookService);
@@ -87,6 +88,7 @@ public class App
             case ADMIN_EDIT_USERS -> editUsersMenu.execute();
             case ADMIN_DELETE_USERS -> deleteUsersMenu.execute();
             case ADMIN_CREATE_USERS -> createUsersMenu.execute();
+            case ADMIN_VIEWS_ALL_USERS -> viewAllUsersMenu.execute();
             //admin book operation
             case ADMIN_CREATE_BOOKS -> createBookMenu.execute();
             case ADMIN_EDIT_BOOKS -> editBookMenu.execute();
