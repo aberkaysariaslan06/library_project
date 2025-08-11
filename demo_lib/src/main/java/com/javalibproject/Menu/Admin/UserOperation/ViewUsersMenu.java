@@ -47,7 +47,9 @@ public class ViewUsersMenu extends Menu {
             return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
         try {
-            Optional<Customer> customerOptional = getUserService().getById(Integer.valueOf(userId));
+
+            Optional<Customer> customerOptional = getCustomerService().getById(Integer.valueOf(userId));
+
             Customer customer1 = customerOptional.orElseThrow();
 
             printfItem("User ID", customer1.getUserId().toString());

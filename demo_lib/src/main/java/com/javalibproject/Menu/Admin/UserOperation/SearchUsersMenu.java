@@ -31,7 +31,9 @@ public class SearchUsersMenu extends Menu {
     public MenuName execute() {
         // printTitle();
         String searchTerm = printAndGet("Enter username to search:");
-        List<Customer> customers = getUserService().searchUsers(searchTerm);
+        // List<Customer> customers2 = getUserService().searchUsers(searchTerm);
+        List<Customer> customers = getCustomerService().searchCustomers(searchTerm);
+
         if (customers.isEmpty()) {
             error("No users found with the username: " + searchTerm);
             // return execute(); // main menu

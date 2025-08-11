@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.javalibproject.Repo.user.User.Customer;
 
 public interface CustomerService {
-    Customer create(Customer customer);
+    Customer createCustomer(Customer customer);
 
     void deleteById(Integer customerId);
 
@@ -14,9 +14,9 @@ public interface CustomerService {
 
     Optional<Customer> getByUsernameAndPassword(String username, String password);
 
-    List<Customer> search(String query);
+    List<Customer> searchCustomers(String query);
 
-    void update(Customer updatedCustomer);
+    void updateCustomer(Customer updatedCustomer);
 
     List<Customer> getAllCustomers();
 

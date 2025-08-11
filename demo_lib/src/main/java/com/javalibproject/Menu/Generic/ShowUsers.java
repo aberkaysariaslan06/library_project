@@ -12,10 +12,10 @@ import java.util.Optional;
 
 public abstract class ShowUsers extends Menu {
 
-    public ShowUsers(String userName, UserService userService) {
-        super(userName, userService);
-        // TODO Auto-generated constructor stub
-    }
+    // public ShowUsers(String userName, UserService userService) {
+    // super(userName, userService);
+    // // TODO Auto-generated constructor stub
+    // }
 
     public ShowUsers(String userName, CustomerService customerService) {
         super(userName, customerService);
@@ -23,11 +23,13 @@ public abstract class ShowUsers extends Menu {
     }
 
     protected List<Customer> fetchAllUsers() {
-        return getUserService().getAllUsers();
+        // return getUserService().getAllUsers();
+        return getCustomerService().getAllCustomers();
+
     }
 
     protected void showAllUsers() {
-        List<Customer> users = getUserService().getAllUsers();
+        List<Customer> users = getCustomerService().getAllCustomers();
         if (users.isEmpty()) {
             error("No users found");
             return;

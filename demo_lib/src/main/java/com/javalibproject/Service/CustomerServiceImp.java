@@ -15,7 +15,7 @@ public class CustomerServiceImp implements CustomerService {
     private final MailService mailService;
 
     @Override
-    public Customer create(Customer customer) {
+    public Customer createCustomer(Customer customer) {
         if (SystemContext.isLoggedUserAdmin()) {
             Customer c = userRepository.createCustomer(customer);
             mailService.sendUserCreatedMail(c);
@@ -50,7 +50,7 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     @Override
-    public List<Customer> search(String query) {
+    public List<Customer> searchCustomers(String query) {
         if (SystemContext.isLoggedUserAdmin()) {
             return userRepository.searchCustomers(query);
 
@@ -61,7 +61,7 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     @Override
-    public void update(Customer updatedCustomer) {
+    public void updateCustomer(Customer updatedCustomer) {
         if (SystemContext.isLoggedUserAdmin()) {
             userRepository.updateCustomer(updatedCustomer);
             mailService.sendUserUpdatedMail(updatedCustomer);

@@ -35,7 +35,7 @@ public class EditUsersMenu extends Menu {
             return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
         try {
-            Optional<Customer> customerOptional = getUserService().getById(Integer.valueOf(userId));
+            Optional<Customer> customerOptional = getCustomerService().getById(Integer.valueOf(userId));
             Customer customer1 = customerOptional.orElseThrow();
 
             // String id = printfAndGet("User ID", customer1.getUserId().toString());
@@ -58,7 +58,7 @@ public class EditUsersMenu extends Menu {
                     city,
                     email);
 
-            getUserService().updateUser(updatedCustomer);
+            getCustomerService().updateCustomer(updatedCustomer);
             println("User updated successfully: " + updatedCustomer.getUsername());
             SystemContext.removeProperty(USER_ID); // clear the user ID after update
             return MenuName.ADMIN_MAIN_MENU;

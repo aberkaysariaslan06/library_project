@@ -32,10 +32,10 @@ public class DeleteUsersMenu extends Menu {
             return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
         try {
-            Optional<Customer> customerOptional = getUserService().getById(Integer.valueOf(userId));
+            Optional<Customer> customerOptional = getCustomerService().getById(Integer.valueOf(userId));
             Customer customer1 = customerOptional.orElseThrow();
 
-            getUserService().deleteUserByUserId(customer1.getUserId());
+            getCustomerService().deleteById(customer1.getUserId());
             println("User deleted successfully ! " + "Customer id - username :" + customer1.getUserId() + " - "
                     + customer1.getUsername());
             SystemContext.removeProperty(USER_ID); // clear the user ID after deletion

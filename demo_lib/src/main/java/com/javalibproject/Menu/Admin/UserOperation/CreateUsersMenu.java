@@ -51,7 +51,8 @@ public class CreateUsersMenu extends Menu {
 
         Customer newCustomer = new Customer(null, userName, password, firstName, lastName, email, address, postCode,
                 city);
-        getUserService().createUser(newCustomer);
+        getCustomerService().createCustomer(newCustomer);
+
         System.out.println();
         println("User created successfully: " + newCustomer.getUsername());
         println("Devam etmek icin bir tusa basiniz...");
