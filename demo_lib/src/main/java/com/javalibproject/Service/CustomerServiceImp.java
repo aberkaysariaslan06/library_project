@@ -1,7 +1,7 @@
 package com.javalibproject.Service;
 
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.UserRepository;
+import com.javalibproject.Repo.user.User.Customer;
+import com.javalibproject.Repo.user.User.UserRepository;
 import com.javalibproject.System.SystemContext;
 import lombok.AllArgsConstructor;
 
@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
-public class CustomerServiceImp implements CustomerService{
+public class CustomerServiceImp implements CustomerService {
 
     private final UserRepository userRepository;
     private final MailService mailService;
 
     @Override
     public Customer create(Customer customer) {
-        if(SystemContext.isLoggedUserAdmin()) {
+        if (SystemContext.isLoggedUserAdmin()) {
             Customer c = userRepository.createCustomer(customer);
             mailService.sendUserCreatedMail(c);
             return c;
@@ -28,7 +28,7 @@ public class CustomerServiceImp implements CustomerService{
 
     @Override
     public void deleteById(Integer customerId) {
-        if(SystemContext.isLoggedUserAdmin()) {
+        if (SystemContext.isLoggedUserAdmin()) {
             userRepository.deleteCustomer(customerId);
         } else {
             throw new RuntimeException("Only admin can delete users");
@@ -51,32 +51,30 @@ public class CustomerServiceImp implements CustomerService{
 
     @Override
     public List<Customer> search(String query) {
-        if(SystemContext.isLoggedUserAdmin()) {
+        if (SystemContext.isLoggedUserAdmin()) {
             return userRepository.searchCustomers(query);
 
         } else {
             throw new RuntimeException("Only admin can search users");
         }
 
-
     }
 
     @Override
     public void update(Customer updatedCustomer) {
-        if(SystemContext.isLoggedUserAdmin()) {
-             userRepository.updateCustomer(updatedCustomer);
-             mailService.sendUserUpdatedMail(updatedCustomer);
+        if (SystemContext.isLoggedUserAdmin()) {
+            userRepository.updateCustomer(updatedCustomer);
+            mailService.sendUserUpdatedMail(updatedCustomer);
 
         } else {
             throw new RuntimeException("Only admin can search users");
         }
 
-
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        if(SystemContext.isLoggedUserAdmin()) {
+        if (SystemContext.isLoggedUserAdmin()) {
             return userRepository.getAllCustomers();
 
         } else {

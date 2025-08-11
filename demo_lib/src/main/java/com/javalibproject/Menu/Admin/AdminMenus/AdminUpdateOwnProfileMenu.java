@@ -2,7 +2,7 @@ package com.javalibproject.Menu.Admin.AdminMenus;
 
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
-import com.javalibproject.Repo.user.AdminUser;
+import com.javalibproject.Repo.user.User.AdminUser;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 

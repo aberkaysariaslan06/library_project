@@ -9,8 +9,8 @@ import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Repo.user.User.Customer;
+import com.javalibproject.Repo.user.User.SystemUser;
 import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
@@ -20,9 +20,9 @@ import javax.swing.text.View;
 public class ViewUsersMenu extends Menu {
 
     public static final String USER_ID = "USER_ID"; // Define a constant for user ID
-        // public UserLoginMenu(String title, UserService userService) {
-    //     super("User Login Succesfully ! ", userService);
-    //     //TODO Auto-generated constructor stub
+    // public UserLoginMenu(String title, UserService userService) {
+    // super("User Login Succesfully ! ", userService);
+    // //TODO Auto-generated constructor stub
     // }
 
     public ViewUsersMenu(CustomerService customerService) {
@@ -34,19 +34,15 @@ public class ViewUsersMenu extends Menu {
                 new MenuOptions("D", "Delete User",
                         MenuName.ADMIN_DELETE_USERS),
                 new MenuOptions("M", "Back to Main Menu",
-                       MenuName.ADMIN_MAIN_MENU)
-        ));
+                        MenuName.ADMIN_MAIN_MENU)));
 
-
-             
     }
-
 
     @Override
     public MenuName execute() {
         printTitle();
         String userId = SystemContext.getProperty(USER_ID);
-        if(userId == null ||userId.isEmpty()) {
+        if (userId == null || userId.isEmpty()) {
             error("User ID is not set. Please search for a user first.");
             return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
@@ -69,14 +65,8 @@ public class ViewUsersMenu extends Menu {
             return MenuName.ADMIN_SEARCH_USERS; // go back to search users menu
         }
 
-
-       
         printOptions();
         return run();
 
-
     }
 }
-
-
-

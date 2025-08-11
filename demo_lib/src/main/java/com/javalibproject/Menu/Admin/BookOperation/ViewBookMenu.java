@@ -9,8 +9,8 @@ import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Repo.user.User.Customer;
+import com.javalibproject.Repo.user.User.SystemUser;
 import com.javalibproject.Repo.user.book.Book;
 import com.javalibproject.Service.BookService;
 import com.javalibproject.Service.UserService;
@@ -31,19 +31,15 @@ public class ViewBookMenu extends Menu {
                 new MenuOptions("D", "Delete Book",
                         MenuName.ADMIN_DELETE_BOOKS),
                 new MenuOptions("M", "Back to Main Menu",
-                       MenuName.ADMIN_MAIN_MENU)
-        ));
+                        MenuName.ADMIN_MAIN_MENU)));
 
-
-             
     }
-
 
     @Override
     public MenuName execute() {
         printTitle();
-        String bookId= SystemContext.getProperty(BOOK_ID);
-        if(bookId == null ||bookId.isEmpty()) {
+        String bookId = SystemContext.getProperty(BOOK_ID);
+        if (bookId == null || bookId.isEmpty()) {
             error("Book ID is not set. Please search for a book first.");
             return MenuName.ADMIN_SEARCH_BOOKS; // go back to search users menu
         }
@@ -57,21 +53,13 @@ public class ViewBookMenu extends Menu {
             printfItem("Author", book1.getAuthor());
             println("--------------------------------");
 
-            
         } catch (ViewUsersException vue) {
             error("Invalid Book ID format: " + bookId);
             return MenuName.ADMIN_SEARCH_BOOKS; // go back to search books menu
         }
 
-
-       
         printOptions();
         return run();
 
-
     }
 }
-
-
-
-

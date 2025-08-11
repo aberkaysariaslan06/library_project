@@ -1,7 +1,7 @@
 package com.javalibproject.Service;
 
-import com.javalibproject.Repo.user.AdminUser;
-import com.javalibproject.Repo.user.UserRepository;
+import com.javalibproject.Repo.user.User.AdminUser;
+import com.javalibproject.Repo.user.User.UserRepository;
 import com.javalibproject.System.SystemContext;
 import lombok.AllArgsConstructor;
 
@@ -9,11 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
-public class AdminServiceImp implements AdminService{
+public class AdminServiceImp implements AdminService {
     private final UserRepository userRepository;
+
     @Override
     public Optional<AdminUser> getById(Integer adminId) {
-        if(!SystemContext.isLoggedUserAdmin()) {
+        if (!SystemContext.isLoggedUserAdmin()) {
             throw new RuntimeException("Only admin can view admins.");
         }
         return userRepository.getAdminById(adminId);
@@ -26,7 +27,7 @@ public class AdminServiceImp implements AdminService{
 
     @Override
     public List<AdminUser> getAllAdmins() {
-        if(!SystemContext.isLoggedUserAdmin()) {
+        if (!SystemContext.isLoggedUserAdmin()) {
             throw new RuntimeException("Only admin can view admins.");
         }
         return userRepository.getAllAdmins();
@@ -35,15 +36,11 @@ public class AdminServiceImp implements AdminService{
 
     @Override
     public void updateOwn(AdminUser updateAdmin) {
-        if(!SystemContext.isLoggedUserAdmin()) {
+        if (!SystemContext.isLoggedUserAdmin()) {
             throw new RuntimeException("Only admin can view admins.");
         }
         userRepository.updateAdmin(updateAdmin);
 
     }
 
-    }
-
-
-
-
+}

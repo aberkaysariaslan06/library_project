@@ -4,7 +4,7 @@ import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
 import com.javalibproject.Menu.Generic.MenuOptions;
-import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Repo.user.User.Customer;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
 
@@ -40,10 +40,8 @@ public class ViewMyProfile extends Menu {
         printfItem("City", customer1.getCity());
         println("--------------------------------------");
 
-
         printOptions();
         return run();
-
 
     }
 }

@@ -4,7 +4,7 @@ import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
-import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Repo.user.User.Customer;
 import com.javalibproject.Repo.user.book.Book;
 import com.javalibproject.Service.BookService;
 import com.javalibproject.Service.UserService;
@@ -19,9 +19,7 @@ public class CreateBookMenu extends Menu {
     public CreateBookMenu(BookService bookService) {
         super("------CREATE BOOK MENU------", bookService);
 
-             
     }
-
 
     @Override
     public MenuName execute() {
@@ -30,20 +28,16 @@ public class CreateBookMenu extends Menu {
         String title = printAndGet("Book Name : ");
         Integer year = Integer.valueOf(printAndGet("Year : "));
         String author = printAndGet("Author : ");
-        
+
         Book newBook = new Book(null, title, year, author);
         getBookService().createBook(newBook);
         System.out.println();
         println("Book created successfully: " + newBook.getBookName());
         println("Press enter to continue ");
 
-        ConsoleReader .readLine();
+        ConsoleReader.readLine();
 
         return MenuName.ADMIN_MAIN_MENU;
 
     }
 }
-
-
-
-

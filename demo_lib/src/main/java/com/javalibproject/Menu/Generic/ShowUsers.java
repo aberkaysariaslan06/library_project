@@ -1,8 +1,7 @@
 package com.javalibproject.Menu.Generic;
 
-
 import com.javalibproject.Exceptions.ViewUsersException;
-import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Repo.user.User.Customer;
 import com.javalibproject.Repo.user.book.Book;
 import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
@@ -11,24 +10,25 @@ import com.javalibproject.System.SystemContext;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class ShowUsers extends Menu{
+public abstract class ShowUsers extends Menu {
 
     public ShowUsers(String userName, UserService userService) {
         super(userName, userService);
-        //TODO Auto-generated constructor stub
-    }
-    public ShowUsers(String userName, CustomerService customerService) {
-        super(userName, customerService);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
 
-    protected List <Customer> fetchAllUsers(){
+    public ShowUsers(String userName, CustomerService customerService) {
+        super(userName, customerService);
+        // TODO Auto-generated constructor stub
+    }
+
+    protected List<Customer> fetchAllUsers() {
         return getUserService().getAllUsers();
     }
 
     protected void showAllUsers() {
         List<Customer> users = getUserService().getAllUsers();
-        if(users.isEmpty()){
+        if (users.isEmpty()) {
             error("No users found");
             return;
         }
@@ -44,9 +44,6 @@ public abstract class ShowUsers extends Menu{
         }
         println("--------------------------------");
 
-
     }
-
-
 
 }

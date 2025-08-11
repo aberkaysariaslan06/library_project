@@ -2,7 +2,7 @@ package com.javalibproject.Menu.Admin.UserOperation;
 
 import com.javalibproject.Exceptions.ViewUsersException;
 import com.javalibproject.Menu.Generic.*;
-import com.javalibproject.Repo.user.Customer;
+import com.javalibproject.Repo.user.User.Customer;
 import com.javalibproject.Service.BookService;
 import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
@@ -23,10 +23,7 @@ public class ViewAllUsersMenu extends ShowUsers {
                 new MenuOptions("S", "Search Users",
                         MenuName.ADMIN_SEARCH_USERS),
                 new MenuOptions("M", "Back to Main Menu",
-                        MenuName.ADMIN_MAIN_MENU)
-        ));
-
-
+                        MenuName.ADMIN_MAIN_MENU)));
 
     }
 
@@ -34,7 +31,7 @@ public class ViewAllUsersMenu extends ShowUsers {
     public MenuName execute() {
         printTitle();
         List<Customer> customers = fetchAllUsers();
-        if(customers == null || customers.isEmpty()) {
+        if (customers == null || customers.isEmpty()) {
             printOptions();
             run();
         }
@@ -42,12 +39,6 @@ public class ViewAllUsersMenu extends ShowUsers {
         printOptions();
         return run();
 
-
-
-
     }
-
-
-
 
 }

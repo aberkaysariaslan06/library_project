@@ -6,8 +6,8 @@ import java.util.Optional;
 import com.javalibproject.Menu.Generic.ConsoleReader;
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.SystemUser;
+import com.javalibproject.Repo.user.User.Customer;
+import com.javalibproject.Repo.user.User.SystemUser;
 import com.javalibproject.Service.CustomerService;
 import com.javalibproject.Service.UserService;
 import com.javalibproject.System.SystemContext;
@@ -15,32 +15,33 @@ import com.javalibproject.System.SystemContext;
 import static com.javalibproject.Menu.Admin.UserOperation.ViewUsersMenu.USER_ID;
 
 public class SearchUsersMenu extends Menu {
-    //public static final String USER_ID = SystemContext.getProperty("USER_ID");
+    // public static final String USER_ID = SystemContext.getProperty("USER_ID");
     private static final String USER_ID_KEY = USER_ID; // Define a constant for user ID
 
     // public UserLoginMenu(String title, UserService userService) {
-    //     super("User Login Succesfully ! ", userService);
-    //     //TODO Auto-generated constructor stub
+    // super("User Login Succesfully ! ", userService);
+    // //TODO Auto-generated constructor stub
     // }
-    public SearchUsersMenu(CustomerService customerService){
+    public SearchUsersMenu(CustomerService customerService) {
         super("------SEARCH USER MENU------", customerService);
-             
+
     }
 
     @Override
     public MenuName execute() {
         // printTitle();
-        String searchTerm = printAndGet("Enter username to search:");     
+        String searchTerm = printAndGet("Enter username to search:");
         List<Customer> customers = getUserService().searchUsers(searchTerm);
-        if(customers.isEmpty()) {
+        if (customers.isEmpty()) {
             error("No users found with the username: " + searchTerm);
             // return execute(); // main menu
-            // return MenuName.SEARCH_USERS;    
+            // return MenuName.SEARCH_USERS;
         } else {
             System.out.printf("%-5s|%-20s|%-20s|%-20s|%-20s %n", "ID", "Username", "First Name", "Last Name", "Email");
             for (Customer customer : customers) {
-                System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n", 
-                    customer.getUserId(), customer.getUsername(), customer.getFirstName(), customer.getLastName(), customer.getEmail());
+                System.out.printf("%-5.5s|%-20.20s|%-20.20s|%-20.20s|%-20.20s %n",
+                        customer.getUserId(), customer.getUsername(), customer.getFirstName(), customer.getLastName(),
+                        customer.getEmail());
             }
             String choice = printAndGet("Enter user ID to see OR 'X' to go back to main menu:");
             if (choice.equalsIgnoreCase("X")) {
@@ -48,7 +49,7 @@ public class SearchUsersMenu extends Menu {
 
             } else {
                 boolean idExist = customers.stream()
-                    .anyMatch(customer -> customer.getUserId().toString().equals(choice));
+                        .anyMatch(customer -> customer.getUserId().toString().equals(choice));
                 if (idExist) {
                     SystemContext.addProperty(USER_ID, choice);
                     return MenuName.ADMIN_VIEW_USERS; // go to view user detail

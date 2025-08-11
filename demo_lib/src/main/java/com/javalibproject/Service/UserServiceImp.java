@@ -3,33 +3,31 @@ package com.javalibproject.Service;
 import java.util.List;
 import java.util.Optional;
 
-import com.javalibproject.Repo.user.AdminUser;
-import com.javalibproject.Repo.user.Customer;
-import com.javalibproject.Repo.user.SystemUser;
-import com.javalibproject.Repo.user.UserRepository;
+import com.javalibproject.Repo.user.User.AdminUser;
+import com.javalibproject.Repo.user.User.Customer;
+import com.javalibproject.Repo.user.User.SystemUser;
+import com.javalibproject.Repo.user.User.UserRepository;
 import com.javalibproject.System.SystemContext;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Deprecated
-public class UserServiceImp implements UserService{
- 
+public class UserServiceImp implements UserService {
+
     private final UserRepository userRepository;
     private final MailService mailService;
 
     @Override
     public void createUser(SystemUser user) {
-        if(SystemContext.isLoggedUserAdmin()) {
-            if(user instanceof Customer c) {
+        if (SystemContext.isLoggedUserAdmin()) {
+            if (user instanceof Customer c) {
                 Customer createdCustomer = userRepository.createCustomer(c);
                 mailService.sendUserCreatedMail(createdCustomer);
-            }
-            else if(user instanceof AdminUser) {
+            } else if (user instanceof AdminUser) {
                 throw new RuntimeException("Admin user cannot be created.");
-            }
-            else {
-                throw new RuntimeException("Unknown user type: " );
+            } else {
+                throw new RuntimeException("Unknown user type: ");
             }
 
         }
@@ -38,13 +36,13 @@ public class UserServiceImp implements UserService{
 
     @Override
     public void deleteUserByUserId(Integer userId) {
-         if(SystemContext.isLoggedUserAdmin()) {
+        if (SystemContext.isLoggedUserAdmin()) {
             userRepository.deleteCustomer(userId);
         } else {
             throw new RuntimeException("Only admin can delete users");
         }
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -55,24 +53,23 @@ public class UserServiceImp implements UserService{
 
     @Override
     public List<Customer> searchUsers(String searchTerm) {
-        if(SystemContext.isLoggedUserAdmin()) { 
+        if (SystemContext.isLoggedUserAdmin()) {
             return userRepository.searchCustomers(searchTerm)
-                .stream()
-                .filter(user -> user instanceof Customer)
-                .map(user -> (Customer) user)
-                .toList();
+                    .stream()
+                    .filter(user -> user instanceof Customer)
+                    .map(user -> (Customer) user)
+                    .toList();
         } else {
             throw new RuntimeException("Only admin can search users");
         }
-      
+
     }
 
     @Override
     public Optional<Customer> getById(Integer userId) {
         return userRepository.getCustomerById(userId)
 
-            .map(systemUser -> (Customer) systemUser);
-
+                .map(systemUser -> (Customer) systemUser);
 
     }
 
@@ -86,10 +83,10 @@ public class UserServiceImp implements UserService{
     @Override
     public List<Customer> getAllUsers() {
         return userRepository.getAllCustomers()
-            .stream()
-            .filter(user -> user instanceof Customer)
-            .map(user -> (Customer) user)
-            .toList();
+                .stream()
+                .filter(user -> user instanceof Customer)
+                .map(user -> (Customer) user)
+                .toList();
     }
 
 }
