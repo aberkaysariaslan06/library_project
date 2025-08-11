@@ -10,9 +10,9 @@
 '
 "
 
-Ekleme Onerisi : Admin Main Menüye View All Users şeklinde bir sayfa eklenebilir. Sistemdeki tüm userları görebiliriz.
+Ekleme Onerisi : Admin Main Menüye View All Users şeklinde bir sayfa eklenebilir. Sistemdeki tüm userları görebiliriz. -> tamamlandı.
 Ekleme Onerisi : Ayni sekilde sistemdeki tüm booklari gorebilmek icin de bu saglanabilir. -> tamamlandi.
-Ekleme Onerisi : Search Book dedigimiz zaman birebir, tam eslesme gerekiyor. Burasi biraz daha leak tutulabilir. Ornegin Example Book icin " Book" gibi search yapmak gerekiyor. Veya kucuk harf book yazdigimizda bulmuyor. Kontrol saglanabilir.
+Ekleme Onerisi : Search Book dedigimiz zaman birebir, tam eslesme gerekiyor. Burasi biraz daha leak tutulabilir. Ornegin Example Book icin " Book" gibi search yapmak gerekiyor. Veya kucuk harf book yazdigimizda bulmuyor. Kontrol saglanabilir.-> tamamlandi.
 
 
 Refactoring :
@@ -20,12 +20,14 @@ SearchBooks, BorrowBooks ve ReturnBooks için tekrarlayan kodlar için bu alttak
 
 generic içine book menu sınıfı eklenerek tekrarlayan kitap listesi kodunu yazan metot buraya eklenebilir. showBooks sayesinde kitapları ekrana yazabilir. Daha sonra tekrarlayan yerlerde bu sınıfı extend ederek showBooks functionu çağrılabilir. (bu func parametre olarak book listesi alıyor.)
 
-benzer işlemler userMenu classı için de oluşturulup sağlanabilir. Hem profil görüntüleme showMyProfile hem de kullanıcı görüntüleme viewUserMenu yeri için refactoring sağlanabilir. tek fark USER_ID aldığı yer. UserID parametre olarak alınıp viewCustomer functionu olarak eklenebilir. yine aynı şekilde gerekli yerlerden extends edilerek MenuName içinde viewUser functionu userId parametresi alınarak kullanılabilir hale getirilebilir.
+benzer işlemler userMenu classı için de oluşturulup sağlanabilir.
+
+Hem profil görüntüleme showMyProfile hem de kullanıcı görüntüleme viewUserMenu yeri için refactoring sağlanabilir. tek fark USER_ID aldığı yer. UserID parametre olarak alınıp viewCustomer functionu olarak eklenebilir. yine aynı şekilde gerekli yerlerden extends edilerek MenuName içinde viewUser functionu userId parametresi alınarak kullanılabilir hale getirilebilir.
 
 
 EditUserMenu ve UpdateMyProfileMenu classı arasında da ortaklıklar mevcut. Tek fark password. password güncellemelerini ortak kullanarak bu classlar içinde ortak bir class yazılarak tek metot kullanımı sağlanabilir.
 
 
-Ödev : Biz kodları yazarken müşterileri ve Admini aynı mapler içinde oluşturmuştuk. Farklı maplerde saklamanızı istiyoruz, Admin için ayrı bır sınıf menüsü, müşteri için ayrı bir sınıf menüsü oluşturulabilir.
+Ödev : Biz kodları yazarken müşterileri ve Admini aynı mapler içinde oluşturmuştuk. Farklı maplerde saklamanızı istiyoruz, Admin için ayrı bır sınıf menüsü, müşteri için ayrı bir sınıf menüsü oluşturulabilir.  -> tamamlandı.
 
 

@@ -1,4 +1,4 @@
-package com.javalibproject.Menu.Admin;
+package com.javalibproject.Menu.Admin.AdminMenus;
 
 import com.javalibproject.Menu.Generic.Menu;
 import com.javalibproject.Menu.Generic.MenuName;
@@ -12,22 +12,22 @@ public class AdminUpdateOwnProfileMenu extends Menu {
     public AdminUpdateOwnProfileMenu(UserService userService) {
         super("------ADMİN UPDATE MENU------", userService);
 
-
     }
+
     @Override
     public MenuName execute() {
         printTitle();
-        if(!SystemContext.isLoggedUserAdmin()) {
+        if (!SystemContext.isLoggedUserAdmin()) {
             error("Only the logged admin can update their profile.");
             return MenuName.ADMIN_MAIN_MENU;
         }
         Integer adminId = SystemContext.getLoggedInUserID();
-        if(adminId == null) {
+        if (adminId == null) {
             error("No logged admin found.");
             return MenuName.ADMIN_MAIN_MENU;
         }
         Optional<AdminUser> optionalAdminUser = getAdminService().getById(adminId);
-        if(optionalAdminUser.isEmpty()){
+        if (optionalAdminUser.isEmpty()) {
             error("Admin not found.");
             return MenuName.ADMIN_MAIN_MENU;
         }
@@ -49,8 +49,7 @@ public class AdminUpdateOwnProfileMenu extends Menu {
         AdminUser updated = new AdminUser(
                 currentAdmin.getUserId(),
                 newUsername.trim(),
-                newPassword.trim()
-        );
+                newPassword.trim());
 
         try {
             getAdminService().updateOwn(updated);
@@ -62,5 +61,4 @@ public class AdminUpdateOwnProfileMenu extends Menu {
         return MenuName.ADMIN_MAIN_MENU;
     }
 
-    }
-
+}

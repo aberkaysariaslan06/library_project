@@ -4,5 +4,4 @@ public interface MenuOptionHandler {
 
     MenuName handle();
 
-    
 }
